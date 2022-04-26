@@ -1,0 +1,18 @@
+<div class="selected-categury">
+  <div class="selected-link">
+    <h5 class="selected-name" >پارچه های منتخب</h5>
+
+  </div>
+
+<div class="selected" *ngIf="NewTextile" >
+
+  <div  class="selected-item" *ngFor="let item of NewTextile"  >
+
+    <img src="{{item.DefaultPictureModel.ImageUrl }}" alt="spring" class="img-selected"  />
+    <span class="title-selected">{{item.Name }}</span>
+    <span class="price-selected">{{item.ProductPrice.Price}} {{item.ProductPrice.CurrencyCode}}</span>
+  </div>
+
+</div>
+</div>
+

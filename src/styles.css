@@ -8,13 +8,14 @@
   box-sizing: border-box;
   font-size: 100%;
   direction: rtl;
+  font-family: "IRANSans";
 }
 
 @font-face {
   font-family: "IRANSans";
-  src: url("assets/fonts/iransans/woff/IRANSansWeb\(FaNum\).woff");
+  src: url('/src/assets/fonts/iransans/woff2/IRANSansWeb(FaNum)_Black.woff2');
 }
 
 body {
-  font-family: "IRANSans";
+  font-family: "IRANSans" !important;
 }

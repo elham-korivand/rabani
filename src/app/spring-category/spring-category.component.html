@@ -1,5 +1,18 @@
-<div class="springs">
-  <a href="">
-    <p *ngFor="let item of Spring">{{ item.Name }}</p>
-  </a>
+<div class="spring-categury">
+  <div class="category-link">
+    <h5 class="categury-name" >پارچه های بهاره</h5>
+    <a href="#">مشاهده همه </a>
+  </div>
+
+<div class="springs" *ngIf="Spring" >
+
+  <div  class="spring-item" *ngFor="let item of Spring"  >
+
+    <img src="{{item.DefaultPictureModel.ImageUrl }}" alt="spring" class="img-spring"  />
+    <span class="title-spring">{{item.Name }}</span>
+    <span class="price-spring">{{item.ProductPrice.Price}} {{item.ProductPrice.CurrencyCode}}</span>
+  </div>
+
 </div>
+</div>
+

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { filter } from 'rxjs';
 import { SpringService } from '../spring-category/spring.service';
 
 @Component({
@@ -12,8 +13,8 @@ export class SpringCategoryComponent implements OnInit {
   Spring: any = [];
   ngOnInit() {
     this.SpringService.getSpringData().subscribe((Data) => {
-      this.Spring = Data;
-      console.log(this.Spring);
+      this.Spring = Data.Data;
+      this.Spring=this.Spring.filter((item:any,index:number)=>index<4)
     });
   }
 }

@@ -1,8 +1,13 @@
 .carousel-inner {
   border-radius: 1rem;
-  width: 90%;
-  position: relative;
-  right: 3.5rem;
+  width: 73%;
 
-  top: 3.5rem;
+  position: relative;
+  right: 15rem;
+
+  top: 2rem;
+}
+img{
+
+  height: 25rem;
 }

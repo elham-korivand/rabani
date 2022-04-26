@@ -1,0 +1,30 @@
+.application-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  width: 70.5%;
+  border-radius: 0.5rem;
+  position: relative;
+  right: 16rem;
+  top: 2rem;
+}
+
+.icons {
+  width: 10rem;
+  height: 6rem;
+  margin-right: 2rem;
+  border-radius: 1rem;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.logo-titlee{
+  font-size: 1.5rem;
+  margin-right: 0.75rem;
+}

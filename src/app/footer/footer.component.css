@@ -1,0 +1,99 @@
+.footer{
+   background-color: #e4e3e3;
+  margin-top: 5rem;
+  height: 100vh;
+
+
+}
+hr{
+  width: 70%;
+  position: relative;
+  right: 16rem;
+  top: 3rem;
+}
+.hr{
+  width: 70%;
+  position: relative;
+  right: 16rem;
+  top: 1rem;
+}
+.container .feature__container{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+margin-top: 5rem;
+
+}
+.link__container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.link__list-container{
+  display: flex;
+  flex-direction: row;
+}
+.social-media__container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.link__list-item{
+
+  list-style: circle;
+  color: blue;
+margin-left: 10rem;
+font-size: 1rem;
+
+}
+.contact-us__container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+#nbqeoeukoeukjzpeesgtsizp{
+  width: 5rem;
+  height: 5rem;
+}
+.payment-certificate__container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.business-information__title{
+  font-size: 1.2rem;
+  font-weight: bold;
+  position: relative;
+  right: 16rem;
+  top: 4rem;
+}
+.business-information__text{
+  width: 70%;
+  position: relative;
+  right: 16rem;
+  top: 4rem;
+}
+.social-media__item-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+.link__title-text{
+  margin-right: 18rem;
+  margin-top: 2rem;
+}

@@ -11,6 +11,9 @@ import { ApplicationBannerComponent } from './application-banner/application-ban
 import { CategurysComponent } from './categurys/categurys.component';
 import { SpringCategoryComponent } from './spring-category/spring-category.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NewCategoryComponent } from './new-category/new-category.component';
+import { SelectedFabricsComponent } from './selected-fabrics/selected-fabrics.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
     ApplicationBannerComponent,
     CategurysComponent,
     SpringCategoryComponent,
+    NewCategoryComponent,
+    SelectedFabricsComponent,
+    FooterComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, NgbModule],
   providers: [],

@@ -1,11 +1,11 @@
-.spring-categury{
+.new-categury{
   background-color:  #f5f4f4;
   width: 73%;
   position: relative;
   right: 15rem;
-  top: 2rem;
+  top: 4rem;
 }
-.springs{
+.new{
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -13,20 +13,20 @@
   flex-wrap: wrap;
   border-radius: 1rem;
 }
-.spring-item{
+.new-item{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 
 
 }
-.img-spring{
+.img-new{
   width: 20rem;
   height: 20rem;
   border-radius: 0.5rem;
   margin-left: 1.3rem;
 }
-.title-spring{
+.title-new{
   position: relative;
   top: -5rem;
   margin-right: 1.5rem;
@@ -36,7 +36,7 @@ color: white;
 font-size: 1.2rem;
 font-family: IRANSans;
 }
-.price-spring{
+.price-new{
   position: relative;
   top: -4.5rem;
   right: 1.5rem;

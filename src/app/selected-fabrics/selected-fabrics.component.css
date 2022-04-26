@@ -1,11 +1,11 @@
-.spring-categury{
-  background-color:  #f5f4f4;
+.selected-categury{
+
   width: 73%;
   position: relative;
   right: 15rem;
-  top: 2rem;
+  top: 4rem;
 }
-.springs{
+.selected{
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -13,20 +13,20 @@
   flex-wrap: wrap;
   border-radius: 1rem;
 }
-.spring-item{
+.selected-item{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 
 
 }
-.img-spring{
+.img-selected{
   width: 20rem;
   height: 20rem;
   border-radius: 0.5rem;
   margin-left: 1.3rem;
 }
-.title-spring{
+.title-selected{
   position: relative;
   top: -5rem;
   margin-right: 1.5rem;
@@ -36,7 +36,7 @@ color: white;
 font-size: 1.2rem;
 font-family: IRANSans;
 }
-.price-spring{
+.price-selected{
   position: relative;
   top: -4.5rem;
   right: 1.5rem;
@@ -46,11 +46,11 @@ font-family: IRANSans;
 
 }
 
-.categury-name{
+.selected-name{
 margin-right: 2rem;
 padding:1rem ;
 }
-.category-link{
+.selected-link{
   display: flex;
   flex-direction: row;
   justify-content: space-between;

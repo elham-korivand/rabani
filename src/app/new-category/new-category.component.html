@@ -1,0 +1,19 @@
+<div class="new-categury">
+  <div class="category-link">
+    <h5 class="categury-name" >جدیدترین پارچه ها</h5>
+    <a href="#">مشاهده همه </a>
+  </div>
+
+<div class="new" *ngIf="NewTextile" >
+
+  <div  class="new-item" *ngFor="let item of NewTextile">
+
+    <img src="{{item.DefaultPictureModel.ImageUrl }}" alt="new" class="img-new"  />
+    <span class="title-new">{{item.Name }}</span>
+    <span class="price-new">{{item.ProductPrice.Price}} {{item.ProductPrice.CurrencyCode}}</span>
+  </div>
+
+</div>
+</div>
+
+
