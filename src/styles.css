@@ -13,9 +13,9 @@
 
 @font-face {
   font-family: "IRANSans";
-  src: url('/src/assets/fonts/iransans/woff2/IRANSansWeb(FaNum)_Black.woff2');
+  src: url('assets/fonts/iransans/woff2/IRANSansWeb(FaNum)_Black.woff2');
 }
 
 body {
-  font-family: "IRANSans" !important;
+  /*font-family: "IRANSans" !important;*/
 }
