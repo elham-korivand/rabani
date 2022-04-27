@@ -1,0 +1,13 @@
+.details{
+  display: flex;
+  flex-direction: row;
+
+}
+.description{
+  background-color: white;
+  width:50%;
+}
+.image-details{
+  width: 5rem;
+  height: 5rem;
+}

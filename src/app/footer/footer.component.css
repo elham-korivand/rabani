@@ -34,6 +34,8 @@ margin-top: 5rem;
 .link__list-container{
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 .social-media__container{
   display: flex;
@@ -56,6 +58,7 @@ font-size: 1rem;
   justify-content: space-around;
   align-items: center;
   margin-top: 4rem;
+
 }
 
 #nbqeoeukoeukjzpeesgtsizp{
@@ -75,18 +78,23 @@ font-size: 1rem;
   position: relative;
   right: 16rem;
   top: 4rem;
+  font-family: "IRANSansbold";
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 .business-information__text{
   width: 70%;
   position: relative;
   right: 16rem;
   top: 4rem;
+  font-size: 0.8rem;
 }
 .social-media__item-container{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+margin: auto;
 
 }
 a{
@@ -94,6 +102,32 @@ a{
   color: black;
 }
 .link__title-text{
-  margin-right: 18rem;
+  margin-right: 15rem;
   margin-top: 2rem;
+  font-family: "IRANSansbold";
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.feature__text-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.social-media__item{
+margin-right: 2rem;
+}
+.logo{
+  margin-right: 2rem;
+}
+.social-media__title-text{
+  margin-bottom: 2rem;
+  margin-right: -4rem;
+  font-family: "IRANSansbold";
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.contact-us__title{
+  font-family: "IRANSansbold";
+  font-weight: bold;
+  font-size: 1.1rem;
 }

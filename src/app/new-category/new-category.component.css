@@ -1,11 +1,12 @@
-.new-categury{
-  background-color:  #f5f4f4;
+.new-categury {
+  background-color: #f5f4f4;
   width: 73%;
   position: relative;
   right: 15rem;
   top: 4rem;
+  border-radius: 1rem;
 }
-.new{
+.new {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -13,50 +14,51 @@
   flex-wrap: wrap;
   border-radius: 1rem;
 }
-.new-item{
+.new-item {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-
-
 }
-.img-new{
+.img-new {
   width: 20rem;
   height: 20rem;
   border-radius: 0.5rem;
   margin-left: 1.3rem;
 }
-.title-new{
+.title-new {
   position: relative;
   top: -5rem;
   margin-right: 1.5rem;
+  font-family: "IRANSans";
 
+  font-size: 1.1rem;
 
-color: white;
-font-size: 1.2rem;
-font-family: IRANSans;
+  color: white;
 }
-.price-new{
+.price-new {
   position: relative;
   top: -4.5rem;
   right: 1.5rem;
   color: white;
-  font-size: 1.3rem;
   margin-right: 0.2rem;
-
+  font-family: "IRANSans";
+  font-size: 1.1rem;
 }
 
-.categury-name{
-margin-right: 2rem;
-padding:1rem ;
+.categury-name {
+  margin-right: 1rem;
+  padding: 1rem;
+  font-family: "IRANSansbold";
+  font-weight: bold;
+  font-size: 1.1rem;
 }
-.category-link{
+.category-link {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-a{
+a {
   margin-left: 2rem;
   text-decoration: none;
 }

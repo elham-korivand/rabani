@@ -8,27 +8,29 @@
           class="search-box"
           placeholder="محصول مورد نظر خود را جست و جو کنید  "
         />
-        <i class="fa fa-search" aria-hidden="true"></i>
+        <img src="../../assets/images/search.svg" alt="" class="fa fa-search">
       </form>
     </div>
 
     <div class="btn btn-login">
       <button type="button" class="btn btn-login">
-        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        <img src="../../assets/images/person-fill.svg" alt="" style="width: 1.3rem;">
         ورود
       </button>
       <button type="button" class="btn btn-login">
-        <i class="fa fa-cart-plus" aria-hidden="true"></i>سبد خرید
+        <img src="../../assets/images/cart2.svg" alt="" style="width: 1.3rem;">
+        سبد خرید
       </button>
     </div>
   </div>
   <div class="navbar">
     <ul>
-      <li><a href="#">صفحه اصلی</a></li>
-      <li><a href="#">فروشگاه ربانی</a></li>
-      <li><a href="#">اخذ نمایندگی</a></li>
-      <li><a href="#">تماس با ما</a></li>
-      <li><a href="#"> درباره ما</a></li>
+      <li><a routerLink="/">صفحه اصلی</a></li>
+      <li><a routerLink="">فروشگاه ربانی</a></li>
+      <li><a routerLink="/landing/franchise" >اخذ نمایندگی</a></li>
+      <li><a routerLink="/contact-us">تماس با ما</a></li>
+      <li><a routerLink="/about-us"> درباره ما</a></li>
     </ul>
   </div>
 </div>
+<router-outlet></router-outlet>

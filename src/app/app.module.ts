@@ -14,6 +14,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { NewCategoryComponent } from './new-category/new-category.component';
 import { SelectedFabricsComponent } from './selected-fabrics/selected-fabrics.component';
 import { FooterComponent } from './footer/footer.component';
+import { LandingfranchiseComponent } from './landingfranchise/landingfranchise.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { HomeComponent } from './home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
+import { DetailsTextileComponent } from './details-textile/details-textile.component';
+
 
 @NgModule({
   declarations: [
@@ -26,9 +34,14 @@ import { FooterComponent } from './footer/footer.component';
     NewCategoryComponent,
     SelectedFabricsComponent,
     FooterComponent,
+    LandingfranchiseComponent,
+    ContactUsComponent,
+    AboutUsComponent,
+    HomeComponent,
+    DetailsTextileComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, NgbModule],
-  providers: [],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, NgbModule, BrowserAnimationsModule,ModalModule],
+  providers: [BsModalService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
