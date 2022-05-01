@@ -14,17 +14,28 @@ export class SpringCategoryComponent implements OnInit {
 
   constructor(
     private SpringService: SpringService,
-    private modalService: BsModalService
+    private modalService: BsModalService,
   ) {}
 
   Spring: any = [];
+
   openModal(id: number) {
-    this.modalRef = this.modalService.show(DetailsTextileComponent);
+    const initialState = {
+      productId: id,
+    };
+    this.modalRef = this.modalService.show(
+      DetailsTextileComponent,
+      Object.assign({
+        initialState,
+      })
+    );
+
     this.modalRef.content.productId = id;
   }
   ngOnInit() {
     this.SpringService.getSpringData().subscribe((Data) => {
       this.Spring = Data.Data;
+
       this.Spring = this.Spring.filter((item: any, index: number) => index < 4);
     });
   }

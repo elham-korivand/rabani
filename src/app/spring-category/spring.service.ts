@@ -12,5 +12,7 @@ export class SpringService {
     return this.http.get(
       'https://api.rabani.com/api/HomePage/Products?type=TYPE.CATEGORY&query=133,0'
     );
+
   }
+
 }

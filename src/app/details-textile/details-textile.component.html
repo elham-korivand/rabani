@@ -1,10 +1,137 @@
-<div class="details-textile" >
-  <div class="details">
-    <img src={{details.DefaultPictureModel.ImageUrl}} routerLink="/product/:id">
+<div
+  class="details-textile"
+
+  style="width: 100rem; position: relative; left: 25rem"
+>
+  <div class="details" *ngIf="details">
+    <img
+      src="{{ details?.DefaultPictureModel?.ImageUrl }}"
+      class="image-details"
+    />
     <div class="description">
-      <h2>{{details.Breadcrumb.ProductName}}</h2>
-      <span></span>
+      <h4 class="textile-main-title">{{ details?.Breadcrumb?.ProductName }}</h4>
+      <p class="textile-sub-title">
+        {{ details.ProductPrice.Price }}
+        {{ details.ProductPrice.CurrencyCode }}/متر
+      </p>
+      <p *ngIf="details.IsAvailable" class="available">موجود در انبار</p>
+      <p *ngIf="!details.IsAvailable" class="available">ناموجود</p>
+      <div class="Description-textile">
+        <div class="item-textile">
+          <span>کد محصول</span>
+
+          <span class="item-text">{{ details.Sku }}</span>
+        </div>
+
+        <div class="item-textile">
+          <span>ایستایی</span>
+          <span class="item-text">متوسط</span>
+        </div>
+        <div class="item-textile">
+          <span>ضخامت</span>
+          <span class="item-text">متوسط</span>
+        </div>
+        <div class="item-textile">
+          <span>عرض</span>
+          <span class="item-text">150 سانتی متر</span>
+        </div>
+        <div class="item-textile">
+          <span>جنس</span>
+          <span class="item-text">{{ details.Breadcrumb.ProductName }}</span>
+        </div>
+        <div class="item-textile">
+          <span>طرح</span>
+          <span class="item-text">گلدار</span>
+        </div>
+      </div>
+      <div class="button-buy">
+        <button
+          class="button"
+          type="button"
+          data-toggle="modal"
+          data-target="#exampleModal"
+        >
+          خرید این کالا
+        </button>
+      </div>
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">میزان کالا</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <hr />
+
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <p class="modal-sub">مقدار مورد نظر جهت سفارش را تعیین نمایید:</p>
+            <div class="modal-body-input"  >
+              <select style="width: 14rem; height: 2.5rem"  name="meter.value" >
+                <option *ngFor="let meter of meterArray">
+                  {{meter}} متر
+                </option>
+              </select>
+
+              <select style="width: 14rem; height: 2.5rem" name="centimeter">
+                <option ngvalue="centimeter" *ngFor="let centimeter of centemeterArray"  >{{centimeter}} سانتی متر</option>
+              </select>
+              <!-- <p >مقدار باید یک عدد مثبت باشی</p> -->
+
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="button-add"
+
+                (click)="openModal(template)"
+              >
+                <img src="../../assets//images/cart2.svg" alt="" />
+                افزودن به سبد خرید
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+<ng-template #template>
+  <div class="modal-header">
+<div class="modal-title">
+  <img src="../../assets/images/cart2.svg" class="image-card" />
+  <p class="modal-title pull-left">کالا به سبد خرید اضافه شد</p>
 
+</div>
+
+     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">×</span>
+     </button>
+  </div>
+
+    <div class="modal-body">
+      <h4>برای ادامه و...</h4>
+      <ul><li>برای خرید پارچه های دیگر به<a href="/HomeComponent">"صفحه اصلی"</a>بروید</li>
+        <li>جهت اتمام خرید و سفارش به<a href="/CartComponent">"سبد خرید"</a>بروید</li>
+      </ul>
+      <hr/>
+
+    </div>
+
+  <div class="modal-footer">
+     <button type="button" class="btn btn-default" (click)="modalRef.hide()">Close</button>
+  </div>
+</ng-template>

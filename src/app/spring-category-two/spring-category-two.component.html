@@ -1,16 +1,15 @@
 <div class="spring-categury">
   <div class="category-link">
     <h5 class="categury-name">پارچه های بهاره</h5>
-    <a routerLink="/spring-textile" >مشاهده همه </a>
+
   </div>
 
   <div class="springs" *ngIf="Spring">
-    <div class="spring-item" *ngFor="let item of Spring"  >
+    <div class="spring-item" *ngFor="let item of Spring">
       <img
         src="{{ item.DefaultPictureModel.ImageUrl }}"
         alt="spring"
         class="img-spring"
-        (click)="openModal(item.Id)"
       />
       <span class="title-spring">{{ item.Name }}</span>
       <span class="price-spring"
@@ -20,14 +19,5 @@
     </div>
   </div>
 </div>
-
-<ng-template #template>
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">Modal</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-       <span aria-hidden="true">×</span>
-    </button>
- </div>
-</ng-template>
 
 <router-outlet></router-outlet>

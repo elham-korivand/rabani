@@ -1,0 +1,66 @@
+.spring-categury {
+
+  width: 73%;
+  position: relative;
+  right: 15rem;
+  top: 2rem;
+  border-radius: 1rem;
+}
+.springs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 1rem;
+}
+.spring-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.img-spring {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 0.5rem;
+  margin-left: 1.3rem;
+}
+.title-spring {
+  position: relative;
+  top: -5rem;
+  margin-right: 1.5rem;
+
+  color: white;
+  font-family: "IRANSans";
+
+  font-size: 1.1rem;
+}
+.price-spring {
+  position: relative;
+  top: -4.5rem;
+  right: 1.5rem;
+  color: white;
+  font-size: 1.3rem;
+  margin-right: 0.2rem;
+  font-family: "IRANSansbold";
+
+  font-size: 1.1rem;
+}
+
+.categury-name {
+  margin-right: 1rem;
+  padding: 1rem;
+  font-family: "IRANSansbold";
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.category-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+a {
+  margin-left: 2rem;
+  text-decoration: none;
+}

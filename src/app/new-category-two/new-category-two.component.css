@@ -1,0 +1,64 @@
+.new-categury {
+
+  width: 73%;
+  position: relative;
+  right: 15rem;
+  top: 4rem;
+  border-radius: 1rem;
+}
+.new {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 1rem;
+}
+.new-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.img-new {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 0.5rem;
+  margin-left: 1.3rem;
+}
+.title-new {
+  position: relative;
+  top: -5rem;
+  margin-right: 1.5rem;
+  font-family: "IRANSans";
+
+  font-size: 1.1rem;
+
+  color: white;
+}
+.price-new {
+  position: relative;
+  top: -4.5rem;
+  right: 1.5rem;
+  color: white;
+  margin-right: 0.2rem;
+  font-family: "IRANSans";
+  font-size: 1.1rem;
+}
+
+.categury-name {
+  margin-right: 1rem;
+  padding: 1rem;
+  font-family: "IRANSansbold";
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.category-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+a {
+  margin-left: 2rem;
+  text-decoration: none;
+}

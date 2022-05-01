@@ -1,13 +1,123 @@
+.details-textile{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .details{
   display: flex;
   flex-direction: row;
+  width: 90rem;
+  height: 50rem;
+  background-color: white;
+
 
 }
-.description{
-  background-color: white;
-  width:50%;
+.available{
+  margin-right: 2rem;
+  font-weight: bold;
+  width: 100%;
+  margin-top: 2rem;
 }
 .image-details{
-  width: 5rem;
-  height: 5rem;
+  width: 40rem;
+  height: 49.8rem;
+}
+.textile-main-title{
+  margin-right: 2rem;
+  font-weight: bold;
+  width: 100%;
+  margin-top: 3rem;
+}
+.textile-sub-title{
+  font-size: 1.2rem;
+  margin-right: 2rem;
+  margin-top: 1rem;
+  color: blue;
+}
+.Description-textile{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+align-items: center;
+  font-size: 0.8rem;
+  background-color: #fff9ec;
+  margin-top: 10rem;
+  width: 50rem;
+  height: 7rem;
+
+
+
+
+}
+.item-textile{
+  /* font-size: 1.1rem; */
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+
+}
+.item-text{
+  color: blue;
+  font-weight: bold;
+}
+.button-buy{
+  display: inline-block;
+
+}
+.button{
+  width: 49rem;
+  height: 3rem;
+  position: relative;
+  top: 18rem;
+  right: 0.5rem;
+  background-color: #ffcb53;
+  border: none;
+}
+.close{
+  position: relative;
+  right: 22rem
+}
+.modal-body{
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; */
+  margin-right: 1rem;
+}
+.button-add{
+  background-color: #ffcb53;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 0.3rem;
+}
+.modal-sub{
+  margin-right: 1rem;
+  margin-top: 1rem;
+}
+.modal-body
+{
+  display: flex;
+  flex-direction: column;
+
+
+}
+.modal-body-input
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.modal-title
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.image-card{
+  width: 2rem;
+  height: 2rem;
 }

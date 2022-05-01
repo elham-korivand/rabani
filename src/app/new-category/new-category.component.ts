@@ -1,6 +1,6 @@
 import { filter } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import{NewServiceService} from "../new-category/new-service.service"
+import{NewServiceService} from "../new-category/new-service.service";
 @Component({
   selector: 'app-new-category',
   templateUrl: './new-category.component.html',
