@@ -1,0 +1,28 @@
+.section-about-us{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-us-content{
+  margin: 2rem 28rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+
+}
+.content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+  margin: 2rem 28rem;
+}
+h4{
+  margin: 1.5rem;
+
+}

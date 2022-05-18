@@ -1,0 +1,9 @@
+.fabric{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 73rem;
+  margin: 3rem 25rem;
+}

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SpringService } from "../spring-category/spring.service";
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { DetailsTextileComponent } from '../details-textile/details-textile.component';
 
 @Component({
   selector: 'app-selected-fabrics',
@@ -8,8 +10,22 @@ import { SpringService } from "../spring-category/spring.service";
 })
 export class SelectedFabricsComponent implements OnInit {
   NewTextile:any=[];
-  constructor(private newspring:SpringService) { }
+  modalRef!: BsModalRef;
+  constructor(private newspring:SpringService,private modalService: BsModalService) { }
 
+  openModal(id: number) {
+    const initialState = {
+      productId: id,
+    };
+    this.modalRef = this.modalService.show(
+      DetailsTextileComponent,
+      Object.assign({
+        initialState,
+      })
+    );
+
+    this.modalRef.content.productId = id;
+  }
   ngOnInit(): void {
     this.newspring.getSpringData().subscribe(Data=>{
       this.NewTextile=Data.Data;

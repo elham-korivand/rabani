@@ -1,0 +1,87 @@
+<div
+  style="
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 60vh;
+  "
+  *ngIf="islogin"
+>
+  <img
+    src="https://www.rabani.com/static/img/logo-square.svg"
+    style="width: 8rem"
+  />
+  <h4 style="font-size: 1.5rem; margin-top: 2rem">ورود</h4>
+  <p>برای ورود ابتدا شماره همراه خود را وارد نمایید</p>
+  <input
+    type="text"
+    style="
+      width: 23rem;
+      height: 3rem;
+      color: rgb(194, 194, 194);
+      text-align: center;
+      border: 1px solid rgb(194, 194, 194);
+      border-radius: 0.3rem;
+    "
+
+    [(ngModel)]="username"
+  />
+  <button
+    id="button"
+    (click)="login()"
+    class="button btn"
+    style="margin-top: 2rem; background-color: #ffcb53"
+  >
+    تایید شماره همراه
+  </button>
+</div>
+<div
+  *ngIf="!islogin"
+  style="
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 60vh;
+  "
+>
+  <img
+    src="https://www.rabani.com/static/img/logo-square.svg"
+    style="width: 8rem"
+  />
+  <h4 style="font-size: 1.5rem; margin-top: 2rem">تایید شماره موبایل</h4>
+  <p>کد اعتبار سنجی برای شماره {{ username }}ارسال شد</p>
+  <p>این کد را در کادر زیر وارد کنید</p>
+  <input
+    type="text"
+    style="
+      width: 23rem;
+      height: 3rem;
+      color: rgb(194, 194, 194);
+      text-align: center;
+      border: 1px solid rgb(194, 194, 194);
+      border-radius: 0.3rem;
+    "
+    [(ngModel)]="inputcode"
+  />
+  <p style="font-size: 0.8rem; margin-top: 1rem" *ngIf="resend">
+    اگر کد را دریافت نکرده اید {{ timeLeft }}ثانیه دیگر دوباره امتحان کنید
+  </p>
+
+  <button
+    id="button"
+    class="button btn"
+    style="margin-top: 2rem; background-color: #ffcb53"
+    *ngIf="resend"
+  >
+    <a routerLink="/" style="text-decoration: none; color: black"
+      >تایید کد اعتبار سنجی</a
+    >
+  </button>
+  <button *ngIf="!resend"  id="button"
+  class="button btn"
+  style="margin-top: 2rem; background-color: blue;color: white;" (click)="login()" type="button" >ارسال مجدد کد</button>
+</div>

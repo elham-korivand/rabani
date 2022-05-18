@@ -111,27 +111,36 @@
 </div>
 <ng-template #template>
   <div class="modal-header">
-<div class="modal-title">
-  <img src="../../assets/images/cart2.svg" class="image-card" />
-  <p class="modal-title pull-left">کالا به سبد خرید اضافه شد</p>
-
-</div>
-
      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
         <span aria-hidden="true">×</span>
      </button>
   </div>
 
     <div class="modal-body">
+      <div class="modal-title">
+        <img src="../../assets/images/cart4.svg" class="image-card"  />
+        <p class="modal-title pull-left" style="color: green;">کالا به سبد خرید اضافه شد</p>
+
+      </div>
+
       <h4>برای ادامه و...</h4>
-      <ul><li>برای خرید پارچه های دیگر به<a href="/HomeComponent">"صفحه اصلی"</a>بروید</li>
-        <li>جهت اتمام خرید و سفارش به<a href="/CartComponent">"سبد خرید"</a>بروید</li>
+      <ul><li>برای خرید پارچه های دیگر به<a routerLink="/HomeComponent">"صفحه اصلی"</a>بروید</li>
+        <li>جهت اتمام خرید و سفارش به<a routerLink="/CartComponent">"سبد خرید"</a>بروید</li>
       </ul>
-      <hr/>
+
 
     </div>
 
   <div class="modal-footer">
-     <button type="button" class="btn btn-default" (click)="modalRef.hide()">Close</button>
+     <a type="button"  routerLink="order/card" (click)="modalRef.hide()" style="background-color: #ffcb53;border-radius: 0.5rem;padding: 0.5rem 1rem;color: black;" >
+ برو به سبد خرید
+     </a>
+     <button type="button" style="border: 1px solid blue;border-radius: 0.5rem;" >
+      <a  class="btn btn-default" (click)="modalRef.hide()"  routerLink="/" >
+
+        برو به صفحه اصلی
+      </a>
+     </button>
   </div>
+
 </ng-template>

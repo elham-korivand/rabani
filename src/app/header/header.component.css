@@ -25,7 +25,7 @@
   height: 3rem;
   border: none;
   margin-left: 1rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
   border-radius: 0.2rem;
   background-color: #f5f4f4;
   font-family: IRANSans;
@@ -49,8 +49,12 @@ ul {
 ul li {
   list-style: none;
   margin-left: 1.5rem;
+  padding-bottom: 1.2rem;
 }
 
+li:hover {
+  border-bottom: 2px solid #ffcb53;
+}
 a {
   text-decoration: none;
   color: #777777;
@@ -76,3 +80,21 @@ input::placeholder {
   color: #777777;
   font-size: 1.1rem;
 }
+.submenue {
+  background-color: white;
+  width: 35rem;
+  height: 17rem;
+  position: absolute;
+  right: 17.3rem;
+  z-index: 20;
+
+
+
+}
+ /* .textile{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+ } */
+

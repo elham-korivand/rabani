@@ -1,0 +1,11 @@
+<h4 style="margin: 2rem 25rem 0rem 25rem;"><strong>انواع پارچه</strong></h4>
+<div class="fabric">
+
+  <div *ngFor="let item of fabric">
+    <a routerLink="/spring-textile">
+      <img src={{item.img}} style="width: 16rem;height:16rem;border-radius: 0.5rem"/>
+
+    </a>
+    <h5 style="text-align: center;position:relative;top:-2rem;color: white;">{{item.name}}</h5>
+  </div>
+</div>

@@ -24,6 +24,10 @@ import { DetailsTextileComponent } from './details-textile/details-textile.compo
 import { SpringCategoryTwoComponent } from './spring-category-two/spring-category-two.component';
 import { NewCategoryTwoComponent } from './new-category-two/new-category-two.component';
 import { CartComponent } from './cart/cart.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { VarietyOfFabricComponent } from './variety-of-fabric/variety-of-fabric.component';
+import { LoginComponent } from './login/login.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 
 
@@ -46,9 +50,12 @@ import { CartComponent } from './cart/cart.component';
     SpringCategoryTwoComponent,
     NewCategoryTwoComponent,
     CartComponent,
-    
+    VarietyOfFabricComponent,
+    LoginComponent,
+    ProfileEditComponent,
+
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, NgbModule, BrowserAnimationsModule,ModalModule,FormsModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, NgbModule, BrowserAnimationsModule,ModalModule,FormsModule,ReactiveFormsModule],
   providers: [BsModalService],
   bootstrap: [AppComponent],
 })

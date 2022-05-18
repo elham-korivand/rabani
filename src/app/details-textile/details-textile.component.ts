@@ -14,7 +14,7 @@ export class DetailsTextileComponent implements OnInit {
   meterArray: number[] = [];
   centemeterArray: number[] = [];
   modalRef!: BsModalRef;
-
+selectItems:any[]=[]
 
   constructor(private DetailsTextileService: DetailsTextileService, private modalService: BsModalService,) {
 

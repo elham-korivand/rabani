@@ -1,72 +1,64 @@
-.details-textile{
+.details-textile {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.details{
+.details {
   display: flex;
   flex-direction: row;
   width: 90rem;
   height: 50rem;
   background-color: white;
-
-
 }
-.available{
+.available {
   margin-right: 2rem;
   font-weight: bold;
   width: 100%;
   margin-top: 2rem;
 }
-.image-details{
+.image-details {
   width: 40rem;
   height: 49.8rem;
 }
-.textile-main-title{
+.textile-main-title {
   margin-right: 2rem;
   font-weight: bold;
   width: 100%;
   margin-top: 3rem;
 }
-.textile-sub-title{
+.textile-sub-title {
   font-size: 1.2rem;
   margin-right: 2rem;
   margin-top: 1rem;
   color: blue;
 }
-.Description-textile{
+.Description-textile {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-align-items: center;
+  align-items: center;
   font-size: 0.8rem;
   background-color: #fff9ec;
   margin-top: 10rem;
   width: 50rem;
   height: 7rem;
-
-
-
-
 }
-.item-textile{
+.item-textile {
   /* font-size: 1.1rem; */
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-align-items: center;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
-.item-text{
+.item-text {
   color: blue;
   font-weight: bold;
 }
-.button-buy{
+.button-buy {
   display: inline-block;
-
 }
-.button{
+.button {
   width: 49rem;
   height: 3rem;
   position: relative;
@@ -75,49 +67,56 @@ align-items: center;
   background-color: #ffcb53;
   border: none;
 }
-.close{
+.close {
   position: relative;
-  right: 22rem
+  right: 22rem;
 }
-.modal-body{
+.modal-body {
   /* display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center; */
   margin-right: 1rem;
 }
-.button-add{
+.button-add {
   background-color: #ffcb53;
   border: none;
   padding: 0.75rem;
   border-radius: 0.3rem;
 }
-.modal-sub{
+.modal-sub {
   margin-right: 1rem;
   margin-top: 1rem;
 }
-.modal-body
-{
+.modal-body {
   display: flex;
   flex-direction: column;
-
-
 }
-.modal-body-input
-{
+.modal-body-input {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
 }
-.modal-title
-{
+.modal-title {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 1rem;
 }
-.image-card{
+.image-card {
   width: 2rem;
   height: 2rem;
+}
+.pull-right {
+  position: relative;
+  right: 28rem;
+}
+a {
+  text-decoration: none;
+}
+button a:hover {
+  background-color: blue;
+  color: white;
 }
