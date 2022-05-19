@@ -1,6 +1,9 @@
+import { Observable } from 'rxjs';
+
 import { Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
+import { Token } from '@angular/compiler';
 
 @Component({
   selector: 'app-login',
@@ -8,15 +11,20 @@ import { LoginService } from './login.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit, OnDestroy {
+
   username: string = '';
   islogin: boolean = true;
   timeLeft: number = 20;
   interval: any;
   resend: boolean = true;
-  inputcode:any;
+  inputcode: any;
+  CustomerGuid: any;
+  step: number = 1;
   constructor(private loginservice: LoginService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('token', Token);
+  }
 
   ngOnDestroy(): void {
     this.pauseTimer();
@@ -28,11 +36,33 @@ export class LoginComponent implements OnInit, OnDestroy {
         IsCall: false,
         Username: this.username,
       })
-      .subscribe(() => {
-        this.islogin = !this.login;
+      .subscribe((response) => {
+        this.step = 2;
         this.startTimer();
         this.timeLeft = 20;
         this.resend = true;
+        this.CustomerGuid = response.CustomerGuid;
+      });
+  }
+
+  checkCode() {
+    this.loginservice
+      .Verify({
+        CustomerId: this.CustomerGuid,
+        VerificationCode: this.inputcode,
+      })
+      .subscribe((data) => {
+        console.log(data);
+        debugger;
+        if (data.ErrorList?.length) {
+          console.error(data.ErrorList);
+          return;
+        }
+
+        if (data.Token) {
+          localStorage.setItem('token', data.Token);
+          this.router.navigate(['/']);
+        }
       });
   }
 
@@ -50,7 +80,14 @@ export class LoginComponent implements OnInit, OnDestroy {
   pauseTimer() {
     clearInterval(this.interval);
   }
-  userIsLogin(){
-    this.loginservice.UserIsLoginService({CustomerId:"",VerificationCode:this.inputcode}).subscribe(res=>console.log(this.inputcode))
-  }
+
+  // userIsLogin(){
+  //   this.loginservice.UserIsLoginService({IsCall: false,
+  //     Username: this.username}).subscribe((response)=>{
+  //       localStorage.setItem('token',response.access_token);
+  //       console.log(response.access_token)
+  //     }
+
+  //   )
+  // }
 }

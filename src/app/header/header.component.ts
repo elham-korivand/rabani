@@ -1,3 +1,4 @@
+import { LoginService } from './../login/login.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   openmenue:boolean=false;
-  submenue:boolean=false
-  constructor() {}
+  submenue:boolean=false;
+  Login:boolean=false;
+  isAuthenticated: boolean = false;
+  constructor(private loginService: LoginService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.isAuthenticated = this.loginService.checkLogin();
+  }
 
   openmodal(){
     this.openmenue=!this.openmenue;
