@@ -349,12 +349,12 @@
         <div class="form-group">
           <div style="margin: 3rem; display: flex; flex-direction: row">
             <div style="display: flex; flex-direction: column">
-              <label for="name-family" style="margin-right: 0.8rem">
+              <label for="name" style="margin-right: 0.8rem">
                 نام و نام خانوادگی
               </label>
               <input
                 type="text"
-                name="name-family"
+                name="name"
                 style="
                   width: 25rem;
                   height: 2.5rem;
@@ -363,23 +363,27 @@
                   margin-right: 0.5rem;
                   margin-left: 3rem;
                 "
-                formControlName="firstname"
+                formControlName="name"
+                required
               />
               <span
-                *ngIf="alert"
+                *ngIf="
+                  formregister.get('name')?.invalid &&
+                  formregister.get('name')?.touched
+                "
                 style="font-size: 0.7rem; color: red; margin-right: 1rem"
                 ;
-
-                >نام و نام خانوادگی مورد نیاز است</span
               >
+                نام و نام خانوادگی مورد نیاز است
+              </span>
             </div>
             <div style="display: flex; flex-direction: column">
-              <label for="name-family" style="margin-right: 0.8rem"
+              <label for="number" style="margin-right: 0.8rem"
                 >شماره تماس</label
               >
               <input
                 type="text"
-                name="name-family"
+                name="number"
                 style="
                   width: 25rem;
                   height: 2.5rem;
@@ -391,7 +395,10 @@
                 formControlName="number"
               />
               <span
-                *ngIf="alert"
+                *ngIf="
+                  formregister.get('number')?.invalid &&
+                  formregister.get('number')?.touched
+                "
                 style="font-size: 0.7rem; color: red; margin-right: 1rem"
                 >شماره تماس مورد نیاز است</span
               >
@@ -400,12 +407,12 @@
           <div>
             <div style="display: flex; flex-direction: row">
               <div style="display: flex; flex-direction: column">
-                <label for="name-family" style="margin-right: 0.8rem"
+                <label for="NationalCode" style="margin-right: 0.8rem"
                   >کد ملی</label
                 >
                 <input
                   type="text"
-                  name="name-family"
+                  name="NationalCode"
                   style="
                     width: 25rem;
                     height: 2.5rem;
@@ -417,18 +424,21 @@
                   formControlName="NationalCode"
                 />
                 <span
-                  *ngIf="alert"
+                  *ngIf="
+                    formregister.get('NationalCode')?.invalid &&
+                    formregister.get('NationalCode')?.touched
+                  "
                   style="font-size: 0.7rem; color: red; margin-right: 1rem"
                   >کد ملی مورد نیاز است</span
                 >
               </div>
               <div style="display: flex; flex-direction: column">
-                <label for="name-family" style="margin-right: 0.8rem"
+                <label for="RegionalMunicipality" style="margin-right: 0.8rem"
                   >منطقه شهرداری</label
                 >
                 <input
                   type="text"
-                  name="name-family"
+                  name="RegionalMunicipality"
                   style="
                     width: 25rem;
                     height: 2.5rem;
@@ -439,18 +449,24 @@
                   "
                   formControlName="RegionalMunicipality"
                 />
+                <span
+                  *ngIf="
+                    formregister.get('RegionalMunicipality')?.invalid &&
+                    formregister.get('RegionalMunicipality')?.touched
+                  "
+                  style="font-size: 0.7rem; color: red; margin-right: 1rem"
+                  >منطقه شهرداری مورد نیاز است</span
+                >
               </div>
             </div>
           </div>
           <div>
             <div style="margin: 3rem; display: flex; flex-direction: row">
               <div style="display: flex; flex-direction: column">
-                <label for="name-family" style="margin-right: 0.8rem"
-                  >استان</label
-                >
+                <label for="state" style="margin-right: 0.8rem">استان</label>
                 <input
                   type="text"
-                  name="name-family"
+                  name="state"
                   style="
                     width: 25rem;
                     height: 2.5rem;
@@ -462,18 +478,19 @@
                   formControlName="state"
                 />
                 <span
-                  *ngIf="alert"
+                  *ngIf="
+                    formregister.get('state')?.invalid &&
+                    formregister.get('state')?.touched
+                  "
                   style="font-size: 0.7rem; color: red; margin-right: 1rem"
                   >استان مورد نیاز است</span
                 >
               </div>
               <div style="display: flex; flex-direction: column">
-                <label for="name-family" style="margin-right: 0.8rem"
-                  >شهر</label
-                >
+                <label for="city" style="margin-right: 0.8rem">شهر</label>
                 <input
                   type="text"
-                  name="name-family"
+                  name="city"
                   style="
                     width: 25rem;
                     height: 2.5rem;
@@ -485,7 +502,10 @@
                   formControlName="city"
                 />
                 <span
-                  *ngIf="alert"
+                  *ngIf="
+                    formregister.get('city')?.invalid &&
+                    formregister.get('city')?.touched
+                  "
                   style="font-size: 0.7rem; color: red; margin-right: 1rem"
                 >
                   شهر مورد نیاز است</span
