@@ -79,16 +79,16 @@
             </div>
             <p class="modal-sub">مقدار مورد نظر جهت سفارش را تعیین نمایید:</p>
             <div class="modal-body-input"  >
-              <select style="width: 14rem; height: 2.5rem"  name="meter.value" >
+              <select style="width: 14rem; height: 2.5rem"  name="meter" [(ngModel)]="meter">
                 <option *ngFor="let meter of meterArray">
                   {{meter}} متر
                 </option>
               </select>
 
-              <select style="width: 14rem; height: 2.5rem" name="centimeter">
+              <select style="width: 14rem; height: 2.5rem" name="centimeterv" [(ngModel)]="centimeter">
                 <option ngvalue="centimeter" *ngFor="let centimeter of centemeterArray"  >{{centimeter}} سانتی متر</option>
               </select>
-              <!-- <p >مقدار باید یک عدد مثبت باشی</p> -->
+
 
             </div>
 
@@ -97,7 +97,7 @@
                 type="button"
                 class="button-add"
 
-                (click)="openModal(template)"
+                (click)="openModal(template,productId)"
               >
                 <img src="../../assets//images/cart2.svg" alt="" />
                 افزودن به سبد خرید

@@ -12,7 +12,7 @@ import { Token } from '@angular/compiler';
 })
 export class LoginComponent implements OnInit, OnDestroy {
 
-  username: string = '';
+  username: any
   islogin: boolean = true;
   timeLeft: number = 20;
   interval: any;
