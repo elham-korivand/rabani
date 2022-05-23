@@ -1,6 +1,9 @@
 <div class="containerr">
   <div class="header">
-    <img src="../../assets/images/logo.svg" alt="rabani" class="logo" />
+    <a routerLink="/">
+      <img src="../../assets/images/logo.svg" alt="rabani" class="logo" />
+    </a>
+
     <div class="search-box">
       <form action="">
         <input
@@ -16,10 +19,10 @@
       <button type="button" class="btn btn-login">
         <img src="../../assets/images/person-fill.svg" style="width: 1.3rem" />
         <a routerLink="/login" *ngIf="!isAuthenticated">ورود</a>
-        <a *ngIf="isAuthenticated">حساب کاربری</a>
+        <a *ngIf="isAuthenticated" style="font-size:0.9rem" (click)="openmodal()">حساب کاربری</a>
       </button>
 
-      <button type="button" class="btn btn-login">
+      <button type="button" class="btn btn-login" routerLink="/order/card">
         <img src="../../assets/images/cart2.svg" style="width: 1.3rem" />
         سبد خرید
       </button>
@@ -28,7 +31,7 @@
   <div class="navbar">
     <ul>
       <li class="list"><a routerLink="/">صفحه اصلی</a></li>
-      <li><a routerLink="" (click)="opensubmenue()">فروشگاه ربانی</a></li>
+      <li><a (click)="opensubmenue()" style="color: rgb(131, 130, 130);cursor: pointer;">فروشگاه ربانی</a></li>
       <li><a routerLink="/landing/franchise">اخذ نمایندگی</a></li>
       <li><a routerLink="/contact-us">تماس با ما</a></li>
       <li><a routerLink="/about-us"> درباره ما</a></li>

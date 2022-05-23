@@ -3,6 +3,8 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { DetailsTextileService } from '../details-textile/details-textile.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { CartService } from '../cart/cart.service';
+import {  HttpHeaders } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-details-textile',
@@ -30,7 +32,7 @@ export class DetailsTextileComponent implements OnInit {
     this.DetailsTextileService.getDetailsTextile(this.productId).subscribe(
       (data) => {
         this.details = data.Data;
-        console.log(data);
+
 
         const meter = Math.round(this.details.Quantity.StockQuantity);
         for (var i = 1; i <= meter; i++) {
@@ -43,15 +45,24 @@ export class DetailsTextileComponent implements OnInit {
     );
   }
   openModal(template: TemplateRef<any>, productId: number) {
-    this.CartService.addtocart(productId, {
+    this.CartService.addtocart(productId, [{
       key: `addtocart_${productId}.EnteredQuantity`,
-      value: this.meter + this.centimeter,
-    }).subscribe((response) => {
+      value:1 ,
+    }]).subscribe((response) => {
       if (response.Success) {
-        console.log('response', response);
+
       }
     });
 
     this.modalRef = this.modalService.show(template);
+    this.DetailsTextileService.count().subscribe(res=>console.log(res))
   }
+  displayHeaders(){
+    let header = new HttpHeaders();
+    header.append('abc','22');
+
+
+    console.log(header.get('abc'));
+  }
+
 }

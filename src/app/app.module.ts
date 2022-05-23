@@ -11,7 +11,7 @@ import { SliderComponent } from './slider/slider.component';
 import { ApplicationBannerComponent } from './application-banner/application-banner.component';
 import { CategurysComponent } from './categurys/categurys.component';
 import { SpringCategoryComponent } from './spring-category/spring-category.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NewCategoryComponent } from './new-category/new-category.component';
 import { SelectedFabricsComponent } from './selected-fabrics/selected-fabrics.component';
 import { FooterComponent } from './footer/footer.component';
@@ -29,6 +29,7 @@ import { CartComponent } from './cart/cart.component';
 import { VarietyOfFabricComponent } from './variety-of-fabric/variety-of-fabric.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { TokenInterceptor } from './login/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,10 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [BsModalService],
+  providers: [
+    BsModalService,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

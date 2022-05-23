@@ -1,5 +1,315 @@
-<div>
-  <h4>سبد خرید</h4>
-  <p>لیست سبد خرید شما در زیر قابل رویت است.میتوانید از این قسمت موارد انتخاب شده را ویرایش و یا حذف</p>
-  <p>ادامه مراحل به معنای تایید <a routerLink="#">قوانین و مقررات</a> سایت است</p>
+<div style="margin-right: 36rem; margin-top: 2rem">
+  <h5 style="margin-bottom: 1rem"><strong> سبد خرید</strong></h5>
+  <p style="font-size: 0.8rem">
+    لیست سبد خرید شما در زیر قابل رویت است.میتوانید از این قسمت موارد انتخاب شده
+    را ویرایش و یا حذف نمایید
+  </p>
+  <p style="font-size: 0.8rem">
+    ادامه مراحل به معنای تایید
+    <a routerLink="#" style="text-decoration: none">
+      <strong> قوانین و مقررات</strong>
+    </a>
+    سایت است
+  </p>
+  <div *ngFor="let item of cart?.Items"
+    class="cart-main"
+    style="
+      border: 1px solid rgb(223, 223, 223);
+      margin-top: 2rem;
+      width: 50rem;
+      padding: 1rem;
+      border-radius: 0.2rem;
+    "
+  >
+    <div
+
+      style="display: flex; flex-direction: row; justify-content: space-between;margin-bottom: 1rem;"
+    >
+      <div class="cart-item">
+        <img
+          src="{{ item.Picture.ImageUrl }}"
+          style="
+            width: 6rem;
+            height: 6 rem;
+            border-radius: 0.5rem;
+            margin-left: 2rem;
+          "
+        />
+        <div class="cart-content">
+          <span> {{ item.ProductSeName }} </span>
+          <span>{{ item.Sku }} کد محصول </span>
+          <span> {{ item.Quantity }} متر</span>
+        </div>
+      </div>
+      <div style="margin-left: 1rem">
+        <img
+          src="../../assets/images/trash.svg"
+          style="margin-left: 1rem; width: 1.4rem"
+        />
+        <a href=""
+          ><img
+            src="../../assets/images/credit-card-2-front.svg"
+            style="width: 1.4rem"
+        /></a>
+      </div>
+    </div>
+    <hr />
+
+    <div
+      style="display: flex; flex-direction: row; justify-content: space-between"
+    >
+      <p>قیمت هر متر <span style="color: blue">100,000تومان</span></p>
+      <p>مجموع <span span style="color: blue">400,000 تومان</span></p>
+    </div>
+  </div>
+  <div
+    style="
+      margin-right: 33rem;
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    "
+  >
+    <div style="margin-bottom: 1rem">
+      <span> مجموع سفارش </span>
+      <span style="color: rgb(218, 218, 218)">- - - - - - - - - -</span>
+      <span> 444.000 تومان</span>
+    </div>
+    <div style="margin-bottom: 1rem">
+      <span> هزینه حمل </span>
+      <span style="color: rgb(218, 218, 218)">- - - - - - - - - -</span>
+      <span> 444.000 تومان</span>
+    </div>
+    <div style="margin-bottom: 1rem">
+      <span> مجموع کوپن </span>
+      <span style="color: rgb(218, 218, 218)">- - - - - - - - - -</span>
+      <span> 444.000 تومان</span>
+    </div>
+    <div style="margin-bottom: 1rem">
+      <span> مجموع تخفیف </span>
+      <span style="color: rgb(218, 218, 218)">- - - - - - - - - -</span>
+      <span> 444.000 تومان</span>
+    </div>
+    <div style="margin-bottom: 1rem">
+      <strong> <span> جمع کل </span></strong>
+
+      <span style="color: rgb(218, 218, 218)">- - - - - - - - - -</span>
+      <strong> <span> 444.000 تومان</span></strong>
+    </div>
+  </div>
+  <div style="display: flex; flex-direction: row; align-items: center">
+    <button
+      style="
+        background-color: #ffcb53;
+        width: 15rem;
+        height: 2.8rem;
+        border: none;
+        border-radius: 0.2rem;
+        margin-top: 5rem;
+        margin-left: 20rem;
+        color: black;
+      "
+      type="submit"
+      type="button"
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target="#exampleModal"
+    >
+      افزودن کد تخفیف
+    </button>
+    <button
+      style="
+        background-color: #ffcb53;
+        width: 15rem;
+        height: 2.8rem;
+        border: none;
+        border-radius: 0.2rem;
+        margin-top: 5rem;
+        color: black;
+      "
+      type="submit"
+      type="button"
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target="#exampleModal2"
+    >
+      اتمام خرید و انتخاب آدرس
+    </button>
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="font-size: 1rem">
+          <strong> افزودن کد تخفیف</strong>
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true" style="margin-right: 20rem">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.8rem">لطفا کد تخفیف را وارد نمایید</p>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          style="
+            background-color: #ffcb53;
+            border: none;
+            color: black;
+            font-size: 0.9rem;
+          "
+          data-dismiss="modal"
+        >
+          ثبت کد تخفیف
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade bd-example-modal-lg"
+  id="exampleModal2"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myLargeModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-ml" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="modal-title" id="exampleModalLabel">افزودن آدرس جدید</p>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true" style="margin-right: 19.5rem">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formregister" (ngsubmit)="openModal()">
+          <div class="form-group">
+            <label for="exampleInputname">نام</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              formControlName="exampleInputEmail1"
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">نام خانوادگی</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputlastname"
+              formControlName="exampleInputlastname"
+              ngModel
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputlastname"> تلفن</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputphone"
+              formControlName="exampleInputphone"
+              ngModel
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputlastname">استان </label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputstate"
+              formControlName="exampleInputstate"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputlastname">شهر </label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputcity"
+              formControlName="exampleInputcity"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputlastname">آدرس </label>
+            <textarea
+              class="form-control"
+              id="exampleFormaddress"
+              rows="3"
+              formControlName="exampleFormaddress"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputlastname">کد پستی </label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputcode"
+              formControlName="exampleInputcode"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputlastname">پلاک </label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputpelak"
+              formControlName="exampleInputpelak"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputlastname">واحد </label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputvahed"
+              formControlName="exampleInputvahed"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          data-dismiss="modal"
+          aria-label="Close"
+          style="background-color: #ffcb53; border: none; color: black"
+          (click)="openModal()"
+        >
+          ثبت آدرس جدید و ادامه
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

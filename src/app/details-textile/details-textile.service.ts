@@ -15,4 +15,8 @@ export class DetailsTextileService {
   //   return this.quantity.get("https://api.rabani.com/api/catalog/product/ProductsQuantityData/"+ProductId)
 
   // }
+  count(){
+    return this.http.get('https://api.rabani.com/api/cart/ShoppingCart/count');
+   }
+
 }

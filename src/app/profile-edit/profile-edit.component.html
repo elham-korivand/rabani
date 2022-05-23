@@ -1,151 +1,184 @@
+<div style="display: flex;flex-direction: row;">
+  <div class="person-container">
+    <img src="https://www.rabani.com/static/img/default-avatar.jpg" class="image-person" />
 <div>
-  <form
-    class="row g-3"
-    style="
-      width: 50rem;
-      position: relative;
-      right: 35rem;
-      top: 2rem;
-      color: rgb(139, 138, 138);
-    "
-  >
-    <p>اطلاعات شخصی</p>
-    <div class="col-md-6">
-      <label for="inputname4" class="form-label">نام</label>
-      <input type="text" class="form-control" id="inputEmail4" />
-    </div>
-    <div class="col-md-6">
-      <label for="inputPassword4" class="form-label">نام خانوادگی</label>
-      <input type="text" class="form-control" id="inputlastname" />
-    </div>
-    <div class="col-md-6">
-      <label for="inputname4" class="form-label">شماره همراه</label>
-      <input type="text" class="form-control" id="inputEmail4" />
-    </div>
-    <div class="col-md-6">
-      <label for="inputname4" class="form-label">شغل</label>
-      <input type="text" class="form-control" id="inputEmail4" />
-    </div>
-    <div class="col-12">
-      <label for="inputemail" class="form-label">پست الکترونیک</label>
-      <input type="email" class="form-control" id="inputemail" />
-    </div>
-
-    <div class="col-md-4">
-      <label for="inputState" class="form-label">سال تولد</label>
-      <select id="inputState" class="form-select">
-        <option></option>
-        <option *ngFor="let item of years">{{ item }}</option>
-      </select>
-      <span *ngIf="showtext">سال تولد را وارد کنید</span>
-    </div>
-    <div class="col-md-4">
-      <label for="inputState" class="form-label">ماه تولد</label>
-      <select id="inputState" class="form-select">
-        <option></option>
-        <option *ngFor="let item of month">{{ item }}</option>
-      </select>
-      <span>سال تولد را وارد کنید</span>
-    </div>
-    <div class="col-md-4">
-      <label for="inputState" class="form-label">روز تولد</label>
-      <select id="inputState" class="form-select">
-        <option></option>
-        <option *ngFor="let item of day">{{ item }}</option>
-      </select>
-      <span>سال تولد را وارد کنید</span>
-    </div>
-    <div
+  <ul>
+    <li>
+      <img src="../../assets/images/person.svg" style="padding-left: 1rem;"/>
+      <a routerLink="#" routerLinkActive="active" [routerLinkActiveOptions]={exact:true}>اطلاعات شخصی</a>
+    </li>
+    <li>
+      <img src="../../assets/images/cart2.svg" style="padding-left: 1rem;" />
+      <a routerLink="/#" routerLinkActive="active">سفارشات </a>
+    </li>
+    <li>
+      <img src="../../assets/images/bookmark (1).svg" style="padding-left: 1rem;"/>
+      <a routerLink="#" routerLinkActive="active">نشان شده ها </a>
+    </li>
+    <li>
+      <img src="../../assets/images/geo-alt-fill.svg" style="padding-left: 1rem;"/>
+      <a routerLink="#" routerLinkActive="active">آدرس ها </a>
+    </li>
+    <li>
+      <img src="../../assets/images/arrow-right-square.svg" style="padding-left: 1rem;"/>
+      <a routerLink="#" routerLinkActive="active">خروج </a>
+    </li>
+  </ul>
+</div>
+  </div>
+  <router-outlet></router-outlet>
+  <div >
+    <form
+      class="row g-3"
       style="
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin-top: 2rem;
+        width: 50rem;
+        position: relative;
+        right: 35rem;
+        top: 2rem;
+        color: rgb(139, 138, 138);
       "
     >
-      <span
-        style="
-          border: 1px solid gray;
-          width: 6rem;
-          height: 2.5rem;
-          text-align: center;
-          padding: 0.3rem;
-          border-radius: 0.2rem;
-        "
-        >خیاطی</span
-      >
-      <span
-        style="
-          border: 1px solid gray;
-          width: 6rem;
-          height: 2.5rem;
-          text-align: center;
-          padding: 0.3rem;
-          border-radius: 0.2rem;
-        "
-        >طراحی</span
-      >
-      <span
-        style="
-          border: 1px solid gray;
-          width: 6rem;
-          height: 2.5rem;
-          text-align: center;
-          padding: 0.3rem;
-          border-radius: 0.2rem;
-        "
-        >مدلینگ</span
-      >
-      <span
-        style="
-          border: 1px solid gray;
-          width: 6rem;
-          height: 2.5rem;
-          text-align: center;
-          padding: 0.3rem;
-          border-radius: 0.2rem;
-        "
-        >ترکیب بندی</span
-      >
-      <span
-        style="
-          border: 1px solid gray;
-          width: 6rem;
-          height: 2.5rem;
-          text-align: center;
-          padding: 0.3rem;
-          border-radius: 0.2rem;
-        "
-        >خرید</span
-      >
-      <span
-        style="
-          border: 1px solid gray;
-          width: 6rem;
-          height: 2.5rem;
-          text-align: center;
-          padding: 0.3rem;
-          border-radius: 0.2rem;
-        "
-        >مد و فشن</span
-      >
-    </div>
+      <p>اطلاعات شخصی</p>
+      <div class="col-md-6">
+        <label for="inputname4" class="form-label">نام</label>
+        <input type="text" class="form-control" id="inputEmail4" />
+      </div>
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">نام خانوادگی</label>
+        <input type="text" class="form-control" id="inputlastname" />
+      </div>
+      <div class="col-md-6">
+        <label for="inputname4" class="form-label">شماره همراه</label>
+        <input type="text" class="form-control" id="inputEmail4" />
+      </div>
+      <div class="col-md-6">
+        <label for="inputname4" class="form-label">شغل</label>
+        <input type="text" class="form-control" id="inputEmail4" />
+      </div>
+      <div class="col-12">
+        <label for="inputemail" class="form-label">پست الکترونیک</label>
+        <input type="email" class="form-control" id="inputemail" />
+      </div>
 
-    <div class="col-12">
-      <button
-        type="submit"
-        class="btn btn-primary"
+      <div class="col-md-4">
+        <label for="inputState" class="form-label">سال تولد</label>
+        <select id="inputState" class="form-select">
+          <option></option>
+          <option *ngFor="let item of years">{{ item }}</option>
+        </select>
+        <span *ngIf="showtext">سال تولد را وارد کنید</span>
+      </div>
+      <div class="col-md-4">
+        <label for="inputState" class="form-label">ماه تولد</label>
+        <select id="inputState" class="form-select">
+          <option></option>
+          <option *ngFor="let item of month">{{ item }}</option>
+        </select>
+        <span>سال تولد را وارد کنید</span>
+      </div>
+      <div class="col-md-4">
+        <label for="inputState" class="form-label">روز تولد</label>
+        <select id="inputState" class="form-select">
+          <option></option>
+          <option *ngFor="let item of day">{{ item }}</option>
+        </select>
+        <span>سال تولد را وارد کنید</span>
+      </div>
+      <div
         style="
-          background-color: #ffcb53;
-          border: none;
-          color: rgb(95, 95, 95);
-          margin-right: 42rem;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
           margin-top: 2rem;
-          width: 8rem;
         "
       >
-        ثبت تغییرات
-      </button>
-    </div>
-  </form>
+        <span
+          style="
+            border: 1px solid gray;
+            width: 6rem;
+            height: 2.5rem;
+            text-align: center;
+            padding: 0.3rem;
+            border-radius: 0.2rem;
+          "
+          >خیاطی</span
+        >
+        <span
+          style="
+            border: 1px solid gray;
+            width: 6rem;
+            height: 2.5rem;
+            text-align: center;
+            padding: 0.3rem;
+            border-radius: 0.2rem;
+          "
+          >طراحی</span
+        >
+        <span
+          style="
+            border: 1px solid gray;
+            width: 6rem;
+            height: 2.5rem;
+            text-align: center;
+            padding: 0.3rem;
+            border-radius: 0.2rem;
+          "
+          >مدلینگ</span
+        >
+        <span
+          style="
+            border: 1px solid gray;
+            width: 6rem;
+            height: 2.5rem;
+            text-align: center;
+            padding: 0.3rem;
+            border-radius: 0.2rem;
+          "
+          >ترکیب بندی</span
+        >
+        <span
+          style="
+            border: 1px solid gray;
+            width: 6rem;
+            height: 2.5rem;
+            text-align: center;
+            padding: 0.3rem;
+            border-radius: 0.2rem;
+          "
+          >خرید</span
+        >
+        <span
+          style="
+            border: 1px solid gray;
+            width: 6rem;
+            height: 2.5rem;
+            text-align: center;
+            padding: 0.3rem;
+            border-radius: 0.2rem;
+          "
+          >مد و فشن</span
+        >
+      </div>
+
+      <div class="col-12">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          style="
+            background-color: #ffcb53;
+            border: none;
+            color: rgb(95, 95, 95);
+            margin-right: 42rem;
+            margin-top: 2rem;
+            width: 8rem;
+          "
+        >
+          ثبت تغییرات
+        </button>
+      </div>
+    </form>
+  </div>
+
 </div>
+
+

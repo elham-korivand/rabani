@@ -50,6 +50,7 @@
           type="button"
           data-toggle="modal"
           data-target="#exampleModal"
+          data-dismiss="modal"
         >
           خرید این کالا
         </button>
@@ -79,13 +80,13 @@
             </div>
             <p class="modal-sub">مقدار مورد نظر جهت سفارش را تعیین نمایید:</p>
             <div class="modal-body-input"  >
-              <select style="width: 14rem; height: 2.5rem"  name="meter" [(ngModel)]="meter">
+              <select style="width: 14rem; height: 2.5rem"  name="meter">
                 <option *ngFor="let meter of meterArray">
                   {{meter}} متر
                 </option>
               </select>
 
-              <select style="width: 14rem; height: 2.5rem" name="centimeterv" [(ngModel)]="centimeter">
+              <select style="width: 14rem; height: 2.5rem" name="centimeterv" >
                 <option ngvalue="centimeter" *ngFor="let centimeter of centemeterArray"  >{{centimeter}} سانتی متر</option>
               </select>
 
@@ -96,10 +97,11 @@
               <button
                 type="button"
                 class="button-add"
-
+                aria-label="Close"
+                data-dismiss="modal"
                 (click)="openModal(template,productId)"
               >
-                <img src="../../assets//images/cart2.svg" alt="" />
+                <img src="../../assets//images/cart2.svg" />
                 افزودن به سبد خرید
               </button>
             </div>
@@ -124,7 +126,7 @@
       </div>
 
       <h4>برای ادامه و...</h4>
-      <ul><li>برای خرید پارچه های دیگر به<a routerLink="/HomeComponent">"صفحه اصلی"</a>بروید</li>
+      <ul><li>برای خرید پارچه های دیگر به<a routerLink="/order/card" >"صفحه اصلی"</a>بروید</li>
         <li>جهت اتمام خرید و سفارش به<a routerLink="/CartComponent">"سبد خرید"</a>بروید</li>
       </ul>
 

@@ -1,0 +1,15 @@
+.cart-content{
+  display: flex;
+  flex-direction: column;
+}
+.cart-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+/* .cart-main{
+  display: flex;
+  flex-direction: column;
+
+} */
