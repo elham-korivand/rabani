@@ -1,4 +1,4 @@
-<div style="margin-right: 36rem; margin-top: 2rem">
+<div style="margin-right: 36rem; margin-top: 2rem" *ngIf="cart.Items?.length">
   <h5 style="margin-bottom: 1rem"><strong> سبد خرید</strong></h5>
   <p style="font-size: 0.8rem">
     لیست سبد خرید شما در زیر قابل رویت است.میتوانید از این قسمت موارد انتخاب شده
@@ -36,21 +36,26 @@
           "
         />
         <div class="cart-content">
-          <span> {{ item.ProductSeName }} </span>
-          <span>{{ item.Sku }} کد محصول </span>
-          <span> {{ item.Quantity }} متر</span>
+          <span> {{ item.ProductName }} </span>
+          <span> کد محصول <strong> {{ item.Sku }} </strong> </span>
+          <span> تعداد <strong>{{ item.Quantity }} {{item.QuantityType}}</strong></span>
         </div>
       </div>
-      <div style="margin-left: 1rem">
-        <img
+      <div style="margin-left: 1rem;">
+        <button type="button" (click)="deleteItem(item.Id)" style="background-color: transparent;border: none;">
+          <img
           src="../../assets/images/trash.svg"
           style="margin-left: 1rem; width: 1.4rem"
         />
-        <a href=""
-          ><img
-            src="../../assets/images/credit-card-2-front.svg"
-            style="width: 1.4rem"
-        /></a>
+        </button>
+<button type="button" style="background-color: transparent;border: none;">
+  <a href=""
+  ><img
+    src="../../assets/images/credit-card-2-front.svg"
+    style="width: 1.4rem"
+/></a>
+</button>
+
       </div>
     </div>
     <hr />
@@ -58,8 +63,8 @@
     <div
       style="display: flex; flex-direction: row; justify-content: space-between"
     >
-      <p>قیمت هر متر <span style="color: blue">100,000تومان</span></p>
-      <p>مجموع <span span style="color: blue">400,000 تومان</span></p>
+      <p>قیمت هر متر <span style="color: blue">{{item.UnitPrice}} تومان</span></p>
+      <p>مجموع <span span style="color: blue">{{item.SubTotal}}تومان</span></p>
     </div>
   </div>
   <div
@@ -69,35 +74,40 @@
       display: flex;
       flex-direction: column;
       justify-content: space-around;
+
     "
+    *ngIf="cart.length"
   >
-    <div style="margin-bottom: 1rem">
+
+    <div style="margin-bottom: 1rem" >
       <span> مجموع سفارش </span>
       <span style="color: rgb(218, 218, 218)">- - - - - - - - - -</span>
-      <span> 444.000 تومان</span>
+      <span> {{cart.OrderTotalResponseModel.SubTotal}} تومان</span>
     </div>
-    <div style="margin-bottom: 1rem">
+    <div style="margin-bottom: 1rem"  >
       <span> هزینه حمل </span>
       <span style="color: rgb(218, 218, 218)">- - - - - - - - - -</span>
-      <span> 444.000 تومان</span>
+      <span> 0 تومان</span>
     </div>
-    <div style="margin-bottom: 1rem">
+    <div style="margin-bottom: 1rem"  >
       <span> مجموع کوپن </span>
       <span style="color: rgb(218, 218, 218)">- - - - - - - - - -</span>
-      <span> 444.000 تومان</span>
+      <span> 0 تومان</span>
     </div>
-    <div style="margin-bottom: 1rem">
+    <div style="margin-bottom: 1rem"  >
       <span> مجموع تخفیف </span>
       <span style="color: rgb(218, 218, 218)">- - - - - - - - - -</span>
-      <span> 444.000 تومان</span>
+      <span>{{cart.OrderTotalResponseModel.OrderTotalDiscount}} تومان</span>
     </div>
-    <div style="margin-bottom: 1rem">
+    <div style="margin-bottom: 1rem" >
       <strong> <span> جمع کل </span></strong>
 
       <span style="color: rgb(218, 218, 218)">- - - - - - - - - -</span>
-      <strong> <span> 444.000 تومان</span></strong>
+      <strong> <span> {{cart.OrderTotalResponseModel.OrderTotal}} تومان</span></strong>
     </div>
   </div>
+
+
   <div style="display: flex; flex-direction: row; align-items: center">
     <button
       style="
@@ -313,3 +323,4 @@
     </div>
   </div>
 </div>
+<p *ngIf="!cart.Items?.length" style="text-align: center;margin-top:4rem;height: 50vh;">سبد خرید شما خالی می باشد</p>

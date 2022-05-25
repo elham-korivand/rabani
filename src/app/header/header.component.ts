@@ -1,5 +1,7 @@
 import { LoginService } from './../login/login.service';
 import { Component, OnInit } from '@angular/core';
+import{CartService} from "../cart/cart.service";
+import{DetailsTextileService} from "../details-textile/details-textile.service"
 
 @Component({
   selector: 'app-header',
@@ -11,10 +13,14 @@ export class HeaderComponent implements OnInit {
   submenue:boolean=false;
   Login:boolean=false;
   isAuthenticated: boolean = false;
-  constructor(private loginService: LoginService) {}
+  shopping:any;
+  constructor(private loginService: LoginService,private cart:CartService) {}
 
   ngOnInit(): void {
     this.isAuthenticated = this.loginService.checkLogin();
+    this.cart.shoppingCart().subscribe(res=>this.shopping=res
+    )
+
   }
 
   openmodal(){

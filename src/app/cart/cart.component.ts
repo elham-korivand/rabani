@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart/cart.service';
@@ -26,7 +27,16 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cartService.shoppingCart().subscribe((res) => {
       this.cart = res;
-      console.log(this.cart);
+    });
+  }
+  deleteItem(id: number) {
+    this.cartService.removeCartItem(id).subscribe(() => {
+      this.refreshCart();
+    });
+  }
+   refreshCart() {
+    this.cartService.shoppingCart().subscribe((res) => {
+      this.cart = res;
     });
   }
 
