@@ -50,7 +50,7 @@ export class DetailsTextileComponent implements OnInit {
     this.CartService.addtocart(productId, [
       {
         key: `addtocart_${productId}.EnteredQuantity`,
-        value:this.quantity
+        value:1
       },
     ]).subscribe((response) => {
       if (response.Success) {

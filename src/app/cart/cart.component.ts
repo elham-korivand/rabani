@@ -1,7 +1,10 @@
 import { Router } from '@angular/router';
+import { DetailsTextileService } from '../details-textile/details-textile.service';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { CartService } from '../cart/cart.service';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-cart',
@@ -11,23 +14,83 @@ import { CartService } from '../cart/cart.service';
 export class CartComponent implements OnInit {
   cart: any;
   Items: any[] = [];
+  details: any = null;
+  productId: number = 0;
+  ProductId: number = 0;
+  meterArray: number[] = [];
+  centemeterArray: number[] = [];
+  modalRef!: BsModalRef;
+  selectItems: any[] = [];
+  metert: number = 0;
+  centimeter: number = 0;
+  selectedMeter: number = 0;
+  selectedCm: number = 0;
+  quantity:number=0;
   formregister = new FormGroup({
-    exampleInputEmail1: new FormControl('', Validators.required),
-    exampleInputlastname: new FormControl('', Validators.required),
-    exampleInputphone: new FormControl('', Validators.required),
-    exampleInputstate: new FormControl('', Validators.required),
-    exampleInputcity: new FormControl('', Validators.required),
-    exampleFormaddress: new FormControl('', Validators.required),
-    exampleInputcode: new FormControl('', Validators.required),
-    exampleInputpelak: new FormControl('', Validators.required),
-    exampleInputvahed: new FormControl('', Validators.required),
+    exampleInputEmail1: new FormControl(null, Validators.required),
+    exampleInputlastname: new FormControl(null, Validators.required),
+    exampleInputphone: new FormControl(null, Validators.required),
+    exampleInputstate: new FormControl(null, Validators.required),
+    exampleInputcity: new FormControl(null, Validators.required),
+    exampleFormaddress: new FormControl(null, Validators.required),
+    exampleInputcode: new FormControl(null, Validators.required),
+    exampleInputpelak: new FormControl(null, Validators.required),
+    exampleInputvahed: new FormControl(null, Validators.required),
   });
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private DetailsTextileService: DetailsTextileService,
+    private modalService: BsModalService,
+    private CartService: CartService) {}
 
   ngOnInit(): void {
     this.cartService.shoppingCart().subscribe((res) => {
       this.cart = res;
     });
+    this.DetailsTextileService.getDetailsTextile(this.productId).subscribe(
+      (data) => {
+        this.details = data.Data;
+
+        const meter = Math.round(this.details.Quantity.StockQuantity);
+        for (var i = 1; i <= meter; i++) {
+          this.meterArray.push(i);
+        }
+        for (var j = 0; j <= 90; j += 5) {
+          this.centemeterArray.push(j);
+        }
+      }
+    );
+  }
+  // openModal(template: TemplateRef<any>, productId: number) {
+  //   this.quantity = (this.selectedMeter * 100) +  (this.selectedMeter);
+  //   console.log(this.selectedMeter)
+  //   this.CartService.addtocart(productId, [
+  //     {
+  //       key: `addtocart_${productId}.EnteredQuantity`,
+  //       value:1
+  //     },
+  //   ]).subscribe((response) => {
+  //     if (response.Success) {
+  //     }
+  //   });
+
+  //   this.modalRef = this.modalService.show(template);
+
+  // }
+  displayHeaders() {
+    let header = new HttpHeaders();
+    header.append('abc', '22');
+
+
+  }
+
+  onMeterSelected(event: any) {
+
+    this.selectedMeter = event.target.value;
+    console.log(this.selectedMeter)
+  }
+  onCentemeterSelected(event: any) {
+
+    this.selectedCm = event.target.value;
+    console.log(this.selectedCm)
   }
   deleteItem(id: number) {
     this.cartService.removeCartItem(id).subscribe(() => {
@@ -40,8 +103,8 @@ export class CartComponent implements OnInit {
     });
   }
 
-  openModal() {
+  openModalForm() {
     console.log(this.formregister);
-    this.formregister.reset();
+    // this.formregister.reset();
   }
 }

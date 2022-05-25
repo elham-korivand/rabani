@@ -12,23 +12,26 @@ import { VarietyOfFabricComponent } from './variety-of-fabric/variety-of-fabric.
 import { LoginComponent } from './login/login.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
-const routes: Routes = [
-  {path:"", component:HomeComponent},
-  {path:"landing/franchise", component:<any> LandingfranchiseComponent} ,
-  {path:"contact-us", component:<any> ContactUsComponent},
-  {path:"about-us", component:<any> AboutUsComponent},
-  {path:"spring-textile", component:<any> SpringCategoryTwoComponent},
-  {path:"new-textile", component:<any> NewCategoryTwoComponent},
+import { AddressComponent } from './address/address.component';
 
-  {path:"product/:id", component:<any> LandingfranchiseComponent} ,
-  {path:"order/card", component:<any> CartComponent} ,
-  {path:"category/انواع پارچه", component:<any> VarietyOfFabricComponent} ,
-  {path:"login", component:<any> LoginComponent} ,
-  {path:"account/profile", component:<any> ProfileEditComponent} ,
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'landing/franchise', component: <any>LandingfranchiseComponent },
+  { path: 'contact-us', component: <any>ContactUsComponent },
+  { path: 'about-us', component: <any>AboutUsComponent },
+  { path: 'spring-textile', component: <any>SpringCategoryTwoComponent },
+  { path: 'new-textile', component: <any>NewCategoryTwoComponent },
+
+  { path: 'product/:id', component: <any>LandingfranchiseComponent },
+  { path: 'order/card', component: <any>CartComponent },
+  { path: 'category/انواع پارچه', component: <any>VarietyOfFabricComponent },
+  { path: 'login', component: <any>LoginComponent },
+  { path: 'account/profile', component: <any>ProfileEditComponent },
+  { path: 'address', component: <any>AddressComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

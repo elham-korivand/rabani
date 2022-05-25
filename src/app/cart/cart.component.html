@@ -48,12 +48,12 @@
           style="margin-left: 1rem; width: 1.4rem"
         />
         </button>
-<button type="button" style="background-color: transparent;border: none;">
-  <a href=""
-  ><img
+<button type="button" style="background-color: transparent;border: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
+
+  <img
     src="../../assets/images/credit-card-2-front.svg"
     style="width: 1.4rem"
-/></a>
+/>
 </button>
 
       </div>
@@ -76,7 +76,7 @@
       justify-content: space-around;
 
     "
-    *ngIf="cart.length"
+
   >
 
     <div style="margin-bottom: 1rem" >
@@ -221,7 +221,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form [formGroup]="formregister" (ngsubmit)="openModal()">
+        <form [formGroup]="formregister" (ngsubmit)="openModalForm()">
           <div class="form-group">
             <label for="exampleInputname">نام</label>
             <input
@@ -307,7 +307,7 @@
             />
           </div>
         </form>
-      </div>
+
       <div class="modal-footer">
         <button
           type="submit"
@@ -315,12 +315,51 @@
           data-dismiss="modal"
           aria-label="Close"
           style="background-color: #ffcb53; border: none; color: black"
-          (click)="openModal()"
+routerLink="/address"
         >
-          ثبت آدرس جدید و ادامه
+       ثبت آدرس جدید و ادامه
         </button>
       </div>
     </div>
   </div>
 </div>
 <p *ngIf="!cart.Items?.length" style="text-align: center;margin-top:4rem;height: 50vh;">سبد خرید شما خالی می باشد</p>
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ویرایش اندازه </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <p class="modal-sub">مقدار مورد نظر جهت سفارش را تعیین نمایید:</p>
+      <div class="modal-body-input"  >
+        <select style="width: 14rem; height: 2.5rem"  name="meter" (change)="onMeterSelected($event)">
+          <option *ngFor="let meter of meterArray">
+            {{meter}} متر
+          </option>
+        </select>
+
+        <select style="width: 14rem; height: 2.5rem" name="centimeterv" (change)="onCentemeterSelected($event)">
+          <option ngvalue="centimeter" *ngFor="let centimeter of centemeterArray"  >{{centimeter}} سانتی متر</option>
+        </select>
+
+
+      </div>
+
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="button-add"
+          aria-label="Close"
+          data-dismiss="modal"
+
+        >
+          <img src="../../assets//images/cart2.svg" />
+          افزودن به سبد خرید
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

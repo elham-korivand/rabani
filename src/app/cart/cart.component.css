@@ -13,3 +13,50 @@
   flex-direction: column;
 
 } */
+.button {
+  width: 49rem;
+  height: 3rem;
+  position: relative;
+  top: 18rem;
+  right: 0.5rem;
+  background-color: #ffcb53;
+  border: none;
+}
+.close {
+  position: relative;
+  right: 22rem;
+}
+.modal-body {
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; */
+  margin-right: 1rem;
+}
+.button-add {
+  background-color: #ffcb53;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 0.3rem;
+}
+.modal-sub {
+  margin-right: 1rem;
+  margin-top: 1rem;
+}
+.modal-body {
+  display: flex;
+  flex-direction: column;
+}
+.modal-body-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.modal-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}

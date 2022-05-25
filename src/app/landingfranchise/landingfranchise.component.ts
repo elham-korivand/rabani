@@ -31,6 +31,6 @@ export class LandingfranchiseComponent implements OnInit {
 
   onSubmit() {
     console.log(this.formregister);
-    this.formregister.reset();
+    //this.formregister.reset();
   }
 }

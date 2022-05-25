@@ -1,0 +1,26 @@
+.address-page{
+ /* position: relative;
+  right: 25rem; */
+  display: flex;
+  flex-direction: column;
+  justify-content: first baseline;
+  align-items: center;
+
+}
+
+.address{
+  border: 1px solid rgb(214, 214, 214);
+  width: 45%;
+
+
+  display: flex;
+  margin-top: 5rem;
+
+  border-radius: 0.3rem;
+
+}
+.address-recive{
+  display: flex;
+  flex-direction: column;
+
+}

@@ -30,6 +30,8 @@ import { VarietyOfFabricComponent } from './variety-of-fabric/variety-of-fabric.
 import { LoginComponent } from './login/login.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { TokenInterceptor } from './login/interceptor.service';
+import { AddressComponent } from './address/address.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -53,8 +55,10 @@ import { TokenInterceptor } from './login/interceptor.service';
     VarietyOfFabricComponent,
     LoginComponent,
     ProfileEditComponent,
+    AddressComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
