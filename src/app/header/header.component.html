@@ -18,8 +18,8 @@
     <div class="btn btn-login">
       <button type="button" class="btn btn-login">
         <img src="../../assets/images/person-fill.svg" style="width: 1.3rem" />
-        <a routerLink="/login" *ngIf="!isAuthenticated">ورود</a>
-        <a *ngIf="isAuthenticated" style="font-size:0.9rem" (click)="openmodal()">حساب کاربری</a>
+        <a routerLink="/login" *ngIf="isAuthenticated">ورود</a>
+        <a *ngIf="!isAuthenticated" style="font-size:0.9rem" (click)="openmodal()">حساب کاربری</a>
       </button>
 
       <button type="button" class="btn btn-login" routerLink="/order/card">
