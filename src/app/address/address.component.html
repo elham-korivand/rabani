@@ -1,13 +1,15 @@
 <div class="address-page">
-  <div>
-    <img src="../../assets/images/cart2.svg" alt="">
+  <!-- <div>
+    <img src="../../assets/images/cart2.svg"  />
     <div></div>
-    <img src="../../assets/images/geo-alt-fill.svg" alt="">
+    <img src="../../assets/images/geo-alt-fill.svg" />
     <div></div>
-    <img src="../../assets/images/bicycle.svg" alt="">
-  </div>
+    <img src="../../assets/images/bicycle.svg"  />
+  </div> -->
   <div class="address" style="height: 3rem; padding: 0.5rem">
-    <span style="margin-top: 0.5rem; font-size: 0.8rem;margin-left: 1rem;"> سبد خرید </span>
+    <span style="margin-top: 0.5rem; font-size: 0.8rem; margin-left: 1rem">
+      سبد خرید
+    </span>
 
     <span style="margin-top: 0.5rem; font-size: 0.8rem"
       >مجموع 444545 تومان
@@ -15,52 +17,61 @@
   </div>
   <hr style="width: 60%; color: rgb(185, 184, 184)" />
   <div style="margin-left: 28rem">
-    <h4 style="margin-bottom: 1rem" ><strong> انتخاب آدرس</strong></h4>
+    <h4 style="margin-bottom: 1rem"><strong> انتخاب آدرس</strong></h4>
     <p style="font-size: 0.8rem">
       لطفا آدرسی را انتخاب کنید و یا آدرس جدید برای دریافت سفارش وارد نمایید.
     </p>
   </div>
 
-  <div class="address" style="padding: 0.5rem">
+  <div class="address" style="padding: 0.5rem" *ngIf="submit
+  ">
     <label class="container">
-      <input type="checkbox"  (click)="checkValue($event)"/>
+      <input type="checkbox" (click)="checkValue($event)" />
       <span class="checkmark"></span>
     </label>
-    <div class="address-recive" >
-      <p><strong>الهام کریوند</strong></p>
-      <p style="font-size: 0.8rem">تهران</p>
-      <p style="font-size: 0.8rem">شماره تماس:09331050281</p>
+    <div class="address-recive">
+      <p><strong>{{validatingForm.value.exampleInputEmail1}}</strong></p>
+      <p style="font-size: 0.8rem">{{validatingForm.value.exampleInputstate}}</p>
+      <p style="font-size: 0.8rem">شماره تماس:{{validatingForm.value.exampleInputphone}}</p>
     </div>
   </div>
   <button
     type="button"
-
     class="add-adress"
-    type="button"  data-toggle="modal" data-target="#exampleModalLong"
+    type="button"
+    data-toggle="modal"
+    data-target="#exampleModalLong"
   >
     افزودن آدرس جدید
   </button>
-  <button
-    type="button"
-
-    class="Continu"
-    type="button"
-    (click)="alertAdress()"
-  >
-      تایید آدرس و ادامه
+  <button type="button" class="Continu" type="button" (click)="alertAdress()" >
+    تایید آدرس و ادامه
   </button>
 </div>
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div
+  class="modal fade"
+  id="exampleModalLong"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true"
+>
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h6 class="modal-title" id="exampleModalLongTitle">افزودن آدرس جدید</h6>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
           <span aria-hidden="true" style="margin-right: 19.5rem">&times;</span>
         </button>
+
       </div>
       <div class="modal-body">
-        <form [formGroup]="formregister" (ngsubmit)="openModalForm()">
+        <form [formGroup]="validatingForm"  >
           <div class="form-group">
             <label for="exampleInputname">نام</label>
             <input
@@ -69,6 +80,8 @@
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               formControlName="exampleInputEmail1"
+              mdbInput mdbValidate
+              [(ngModel)]="name"
             />
           </div>
           <div class="form-group">
@@ -93,21 +106,26 @@
           </div>
           <div class="form-group">
             <label for="exampleInputlastname">استان </label>
-            <input
-              type="text"
-              class="form-control"
-              id="exampleInputstate"
-              formControlName="exampleInputstate"
-            />
+           <select name="State"  type="text"
+           class="form-control"
+           id="exampleInputstate"
+           formControlName="exampleInputstate"
+
+(change)=" getcity($event)"
+           >
+
+             <option
+              *ngFor="let item of State" [value]="item.id" style="font-size: 0.9rem;">{{item.name}}</option>
+           </select>
           </div>
           <div class="form-group">
             <label for="exampleInputlastname">شهر </label>
-            <input
-              type="text"
-              class="form-control"
-              id="exampleInputcity"
-              formControlName="exampleInputcity"
-            />
+           <select name="City"   type="text"
+           class="form-control"
+           id="exampleInputcity"
+           formControlName="exampleInputcity">
+             <option value="" *ngFor="let item of City" style="font-size: 0.9rem;">{{item.name}}</option>
+           </select>
           </div>
           <div class="form-group">
             <label for="exampleInputlastname">آدرس </label>
@@ -147,23 +165,19 @@
           </div>
         </form>
 
-      <div class="modal-footer">
-        <button
-          type="submit"
-          class="btn btn-primary"
-          data-dismiss="modal"
-          aria-label="Close"
-          style="background-color: #ffcb53; border: none; color: black"
-routerLink="/address"
-
-        >
-       ثبت آدرس جدید و ادامه
-        </button>
+        <div class="modal-footer">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            data-dismiss="modal"
+            aria-label="Close"
+            style="background-color: #ffcb53; border: none; color: black"
+            (click)="addadress()"
+          >
+            ثبت آدرس جدید و ادامه
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-    </div>
-
-

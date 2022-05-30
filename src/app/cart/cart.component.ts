@@ -12,6 +12,7 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
+
   cart: any;
   Items: any[] = [];
   details: any = null;
@@ -26,17 +27,8 @@ export class CartComponent implements OnInit {
   selectedMeter: number = 0;
   selectedCm: number = 0;
   quantity:number=0;
-  formregister = new FormGroup({
-    exampleInputEmail1: new FormControl(null, Validators.required),
-    exampleInputlastname: new FormControl(null, Validators.required),
-    exampleInputphone: new FormControl(null, Validators.required),
-    exampleInputstate: new FormControl(null, Validators.required),
-    exampleInputcity: new FormControl(null, Validators.required),
-    exampleFormaddress: new FormControl(null, Validators.required),
-    exampleInputcode: new FormControl(null, Validators.required),
-    exampleInputpelak: new FormControl(null, Validators.required),
-    exampleInputvahed: new FormControl(null, Validators.required),
-  });
+  copon:string="";
+
   constructor(private cartService: CartService, private DetailsTextileService: DetailsTextileService,
     private modalService: BsModalService,
     private CartService: CartService) {}
@@ -103,8 +95,8 @@ export class CartComponent implements OnInit {
     });
   }
 
-  openModalForm() {
-    console.log(this.formregister);
-    // this.formregister.reset();
-  }
+
+// addcopon(value:any){
+//   this.CartService.ApplyDiscountCoupon(value).subscribe(res=>console.log(res))
+// }
 }

@@ -1,0 +1,118 @@
+.address-page{
+  /* position: relative;
+   right: 25rem; */
+   display: flex;
+   flex-direction: column;
+   justify-content: first baseline;
+   align-items: center;
+
+ }
+
+ .address{
+   border: 1px solid rgb(214, 214, 214);
+   width: 45%;
+
+
+
+   display: flex;
+   margin-top: 2rem;
+
+   border-radius: 0.3rem;
+
+ }
+ .address-recive{
+   display: flex;
+   flex-direction: column;
+   height: 6rem;
+   margin-right: 4rem;
+
+ }
+ .container {
+   display: block;
+   position: absolute;
+   padding-right: 10px;
+   margin-bottom: 12px;
+   cursor: pointer;
+   font-size: 22px;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+ }
+
+ /* Hide the browser's default radio button */
+ .container input {
+   position: absolute;
+   opacity: 0;
+   cursor: pointer;
+   height: 0;
+   width: 0;
+ }
+
+ /* Create a custom radio button */
+ .checkmark {
+   position: absolute;
+   top: 2rem;
+   left: 10;
+   height: 25px;
+   width: 25px;
+   background-color: #eee;
+   border-radius: 50%;
+ }
+
+ /* On mouse-over, add a grey background color */
+ .container:hover input ~ .checkmark {
+   background-color: #ccc;
+ }
+
+ /* When the radio button is checked, add a blue background */
+ .container input:checked ~ .checkmark {
+   background-color: #2196F3;
+ }
+
+ /* Create the indicator (the dot/circle - hidden when not checked) */
+ .checkmark:after {
+   content: "";
+   position: absolute;
+   display: none;
+ }
+
+ /* Show the indicator (dot/circle) when checked */
+ .container input:checked ~ .checkmark:after {
+   display: block;
+ }
+
+ /* Style the indicator (dot/circle) */
+ .container .checkmark:after {
+   top: 9px;
+   left: 9px;
+   width: 8px;
+   height: 8px;
+   border-radius: 50%;
+   background: white;
+ }
+ .add-adress{
+   width: 53rem;
+   margin-top: 2rem;
+   background-color: transparent;
+   color: blue;
+   border: 1px solid blue;
+   height: 2.5rem;
+   border-radius: 0.2rem;
+
+ }
+ .add-adress:hover{
+   background-color: blue;
+   color: white;
+ }
+ .Continu{
+   background-color: #ffcb53;
+   width: 53rem;
+   margin-top: 2rem;
+
+
+   border: 1px solid #ffcb53;
+   height: 2.5rem;
+   border-radius: 0.2rem;
+
+ }

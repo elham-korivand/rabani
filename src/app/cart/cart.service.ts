@@ -27,4 +27,7 @@ export class CartService {
 
     );
   }
+  // ApplyDiscountCoupon(value:"tajrish-10"){
+  //   return this.http.post('https://api.rabani.com/api/cart/ShoppingCart/ApplyDiscountCoupon',value)
+  // }
 }

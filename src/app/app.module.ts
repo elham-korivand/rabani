@@ -32,6 +32,9 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { TokenInterceptor } from './login/interceptor.service';
 import { AddressComponent } from './address/address.component';
 import { CommonModule } from '@angular/common';
+import { ShippingComponent } from './shipping/shipping.component';
+import { PaymentComponent } from './payment/payment.component';
+
 
 @NgModule({
   declarations: [
@@ -56,6 +59,9 @@ import { CommonModule } from '@angular/common';
     LoginComponent,
     ProfileEditComponent,
     AddressComponent,
+    ShippingComponent,
+    PaymentComponent,
+
   ],
   imports: [
     CommonModule,

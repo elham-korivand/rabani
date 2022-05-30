@@ -1,7 +1,7 @@
 import { LoginService } from './../login/login.service';
 import { Component, OnInit } from '@angular/core';
 import{CartService} from "../cart/cart.service";
-import{DetailsTextileService} from "../details-textile/details-textile.service"
+
 
 @Component({
   selector: 'app-header',

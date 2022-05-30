@@ -13,6 +13,8 @@ import { LoginComponent } from './login/login.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 import { AddressComponent } from './address/address.component';
+import{ShippingComponent} from "./shipping/shipping.component";
+import{PaymentComponent} from "./payment/payment.component"
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,6 +30,8 @@ const routes: Routes = [
   { path: 'login', component: <any>LoginComponent },
   { path: 'account/profile', component: <any>ProfileEditComponent },
   { path: 'address', component: <any>AddressComponent },
+  { path: 'shipping', component: <any>ShippingComponent },
+  { path: 'payment', component: <any>PaymentComponent },
 ];
 
 @NgModule({

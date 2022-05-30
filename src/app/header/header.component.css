@@ -52,7 +52,7 @@ ul li {
   padding-bottom: 1.2rem;
 }
 
-li:hover {
+li.list:hover {
   border-bottom: 2px solid #ffcb53;
 }
 a {
@@ -63,7 +63,7 @@ a {
 }
 .fa-search {
   position: absolute;
-  top: 2rem;
+  top: 2.5rem;
   color: #e3e3e4;
   width: 1.2rem;
   margin-right: 0.5rem;
@@ -91,10 +91,14 @@ input::placeholder {
 
 
 }
- /* .textile{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
- } */
+ div.menuitem:hover{
+   background-color: #f0f0f0;
+   width: 100%;
 
+ }
+ .menuitem li a:hover{
+  color:#ffcb53;
+ }
+.menuitem{
+  width: 20rem;
+}
