@@ -34,6 +34,10 @@ import { AddressComponent } from './address/address.component';
 import { CommonModule } from '@angular/common';
 import { ShippingComponent } from './shipping/shipping.component';
 import { PaymentComponent } from './payment/payment.component';
+import { SidebarAccountComponent } from './profile-edit/sidebar-account/sidebar-account.component';
+
+
+
 
 
 @NgModule({
@@ -61,6 +65,10 @@ import { PaymentComponent } from './payment/payment.component';
     AddressComponent,
     ShippingComponent,
     PaymentComponent,
+    SidebarAccountComponent,
+
+
+
 
   ],
   imports: [

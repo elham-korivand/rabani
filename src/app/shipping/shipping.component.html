@@ -5,17 +5,15 @@
     </span>
 
     <span style="margin-top: 0.5rem; font-size: 0.8rem"
-      >مجموع 444545 تومان
+      >مجموع {{ totalPrice }} تومان
     </span>
   </div>
   <div class="address" style="height: 3rem; padding: 0.5rem">
     <span style="margin-top: 0.5rem; font-size: 0.8rem; margin-left: 1rem">
-      آدرس ارسال
+      آدرس ارسال {{address}}
     </span>
 
-    <span style="margin-top: 0.5rem; font-size: 0.8rem"
-      >تهران
-    </span>
+    <span style="margin-top: 0.5rem; font-size: 0.8rem">{{ address }} </span>
   </div>
   <hr style="width: 60%; color: rgb(185, 184, 184)" />
   <div style="margin-left: 28rem">
@@ -27,17 +25,20 @@
 
   <div class="address" style="padding: 0.5rem">
     <label class="container">
-      <input type="checkbox"  />
+      <input type="checkbox" />
       <span class="checkmark"></span>
     </label>
     <div class="address-recive">
-      <p><strong>پست پیشتاز</strong></p>
-      <p style="font-size: 0.8rem">سفارشات در روز کاری بعد ارسال و بین 48 تا 72 ساعت توسط پست، درب منزل تحویل می گردد</p>
+      <p>
+        <strong>{{ shipping.ShippingMethods.Name }} </strong>
+      </p>
+      <p style="font-size: 0.8rem">
+        سفارشات در روز کاری بعد ارسال و بین 48 تا 72 ساعت توسط پست، درب منزل
+        تحویل می گردد
+      </p>
       <p style="font-size: 0.8rem">ارسال رایگان</p>
     </div>
   </div>
-  <button type="button" class="Continu" type="button"  >
-    تایید آدرس و ادامه
+  <button type="button" class="Continu" type="button" (click)="selectedPost()" routerLink="/payment">
+   تایید و انتخاب نحوه پرداخت
   </button>
-</div>
-

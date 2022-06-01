@@ -1,21 +1,60 @@
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormControlName, FormGroupName } from '@angular/forms';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AddressService {
+  addressSubject$ = new Subject();
 
-  constructor(private http:HttpClient) { }
-getstate(): Observable<any>{
- return this.http.get('https://api.rabani.com/api/Country/GetStatesByCountryId/55');
-}
-getcity(id:any): Observable<any>{
-  return this.http.get('https://api.rabani.com/api/country/getcitybystatesid/'+`${id}`)
-}
-addressuser(value:any=`${FormGroupName}`,key:any="ShippingNewAddress"+`${FormControlName}`){
-return this.http.post('https://api.rabani.com/api/Checkout/CheckoutSaveAdress/2',{value,key});
-}
+  constructor(private http: HttpClient) {}
+
+  saveToMemory(addressInfo: any) {
+    this.addressSubject$.next(addressInfo);
+  }
+
+  getState(): Observable<any> {
+    return this.http.get(
+      'https://api.rabani.com/api/Country/GetStatesByCountryId/55'
+    );
+  }
+
+  getCity(id: any): Observable<any> {
+    return this.http.get(
+      'https://api.rabani.com/api/country/getcitybystatesid/' + `${id}`
+    );
+  }
+
+  addAddress(address: any): Observable<any> {
+    return this.http.post(
+      'https://api.rabani.com/api/Checkout/CheckoutSaveAdress/2',
+      address
+    );
+  }
+
+  saveSelectedAddress(addressId: number): Observable<any> {
+    return this.http.post(
+      'https://api.rabani.com/api/Checkout/CheckoutSaveAdressId/2',
+      {
+        value: addressId,
+      }
+    );
+  }
+
+  getAddresses(): Observable<any> {
+    return this.http.get<any>('https://api.rabani.com/api/Customer/Addresses');
+  }
+
+  CheckoutOrderInformation(): Observable<any> {
+    return this.http.get(
+      'https://api.rabani.com/api/checkout/ShoppingCart/CheckoutOrderInformation'
+    );
+  }
+  CustomerOrders(): Observable<any> {
+    return this.http.get(
+      'https://api.rabani.com/api/customer/Order/CustomerOrders'
+    );
+  }
 }

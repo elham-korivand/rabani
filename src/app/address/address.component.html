@@ -12,7 +12,7 @@
     </span>
 
     <span style="margin-top: 0.5rem; font-size: 0.8rem"
-      >مجموع 444545 تومان
+      >مجموع {{ orderTotal }} تومان
     </span>
   </div>
   <hr style="width: 60%; color: rgb(185, 184, 184)" />
@@ -23,16 +23,28 @@
     </p>
   </div>
 
-  <div class="address" style="padding: 0.5rem" *ngIf="submit
-  ">
+  <div
+    *ngFor="let address of addresses"
+    class="address"
+    style="padding: 0.5rem"
+  >
     <label class="container">
-      <input type="checkbox" (click)="checkValue($event)" />
+      <input
+        type="checkbox"
+        (click)="onSelectAddress(address.Id, $event)"
+        [checked]="address.Id == selectedAddressId"
+      />
       <span class="checkmark"></span>
     </label>
     <div class="address-recive">
-      <p><strong>{{validatingForm.value.exampleInputEmail1}}</strong></p>
-      <p style="font-size: 0.8rem">{{validatingForm.value.exampleInputstate}}</p>
-      <p style="font-size: 0.8rem">شماره تماس:{{validatingForm.value.exampleInputphone}}</p>
+      <p>
+        <strong>{{ address.FirstName }} {{ address.LastName }}</strong>
+      </p>
+      <p style="font-size: 0.8rem">
+        {{ address.StateProvinceName }} - {{ address.City }} -
+        {{ address.Address1 }}
+      </p>
+      <p style="font-size: 0.8rem">شماره تماس: {{ address.PhoneNumber }}</p>
     </div>
   </div>
   <button
@@ -44,7 +56,7 @@
   >
     افزودن آدرس جدید
   </button>
-  <button type="button" class="Continu" type="button" (click)="alertAdress()" >
+  <button type="button" class="Continu" type="button" (click)="onConfirmAddress()">
     تایید آدرس و ادامه
   </button>
 </div>
@@ -68,10 +80,9 @@
         >
           <span aria-hidden="true" style="margin-right: 19.5rem">&times;</span>
         </button>
-
       </div>
       <div class="modal-body">
-        <form [formGroup]="validatingForm"  >
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
           <div class="form-group">
             <label for="exampleInputname">نام</label>
             <input
@@ -79,9 +90,10 @@
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              formControlName="exampleInputEmail1"
-              mdbInput mdbValidate
-              [(ngModel)]="name"
+              mdbInput
+              mdbValidate
+              [(ngModel)]="address.firstName"
+              name="firstName"
             />
           </div>
           <div class="form-group">
@@ -90,8 +102,8 @@
               type="text"
               class="form-control"
               id="exampleInputlastname"
-              formControlName="exampleInputlastname"
-              ngModel
+              [(ngModel)]="address.lastName"
+              name="LastName"
             />
           </div>
           <div class="form-group">
@@ -100,32 +112,48 @@
               type="text"
               class="form-control"
               id="exampleInputphone"
-              formControlName="exampleInputphone"
-              ngModel
+              name="PhoneNumber"
+              [(ngModel)]="address.PhoneNumber"
             />
           </div>
           <div class="form-group">
             <label for="exampleInputlastname">استان </label>
-           <select name="State"  type="text"
-           class="form-control"
-           id="exampleInputstate"
-           formControlName="exampleInputstate"
-
-(change)=" getcity($event)"
-           >
-
-             <option
-              *ngFor="let item of State" [value]="item.id" style="font-size: 0.9rem;">{{item.name}}</option>
-           </select>
+            <select
+              name="State"
+              type="text"
+              class="form-control"
+              id="exampleInputstate"
+              [(ngModel)]="address.StateProvinceId"
+              name="StateProvinceId"
+              (change)="getcity($event)"
+            >
+              <option
+                *ngFor="let item of State"
+                [value]="item.id"
+                style="font-size: 0.9rem"
+              >
+                {{ item.name }}
+              </option>
+            </select>
           </div>
           <div class="form-group">
             <label for="exampleInputlastname">شهر </label>
-           <select name="City"   type="text"
-           class="form-control"
-           id="exampleInputcity"
-           formControlName="exampleInputcity">
-             <option value="" *ngFor="let item of City" style="font-size: 0.9rem;">{{item.name}}</option>
-           </select>
+            <select
+              name="City"
+              type="text"
+              class="form-control"
+              id="exampleInputcity"
+              name="City"
+              [(ngModel)]="address.City"
+            >
+              <option
+                *ngFor="let item of city"
+                style="font-size: 0.9rem"
+                [value]="item.id"
+              >
+                {{ item.name }}
+              </option>
+            </select>
           </div>
           <div class="form-group">
             <label for="exampleInputlastname">آدرس </label>
@@ -133,7 +161,8 @@
               class="form-control"
               id="exampleFormaddress"
               rows="3"
-              formControlName="exampleFormaddress"
+              [(ngModel)]="address.Address1"
+              name="Address1"
             ></textarea>
           </div>
           <div class="form-group">
@@ -142,7 +171,8 @@
               type="text"
               class="form-control"
               id="exampleInputcode"
-              formControlName="exampleInputcode"
+              [(ngModel)]="address.ZipPostalCode"
+              name="ZipPostalCode"
             />
           </div>
           <div class="form-group">
@@ -151,7 +181,8 @@
               type="text"
               class="form-control"
               id="exampleInputpelak"
-              formControlName="exampleInputpelak"
+              [(ngModel)]="address.Plaque"
+              name="Plaque"
             />
           </div>
           <div class="form-group">
@@ -160,7 +191,8 @@
               type="text"
               class="form-control"
               id="exampleInputvahed"
-              formControlName="exampleInputvahed"
+              [(ngModel)]="address.Unit"
+              name="Unit"
             />
           </div>
         </form>
@@ -172,7 +204,7 @@
             data-dismiss="modal"
             aria-label="Close"
             style="background-color: #ffcb53; border: none; color: black"
-            (click)="addadress()"
+            (click)="addAddress()"
           >
             ثبت آدرس جدید و ادامه
           </button>
