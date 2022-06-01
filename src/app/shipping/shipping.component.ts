@@ -20,14 +20,15 @@ export class ShippingComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTotalPrice();
+    this.getShippingMethods()
     this.addressService.addressSubject$.subscribe((data: any) => {
+      console.log("addressdata", data);
       this.address = data.addressDetail;
     });
   }
-  selectedPost() {
+  getShippingMethods() {
     this.shippingService.CheckoutGetShippingMethods().subscribe((res) => {
-      this.shipping = res;
-
+      this.shipping = res.ShippingMethods;
     });
   }
   getTotalPrice() {

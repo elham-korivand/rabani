@@ -1,3 +1,4 @@
+import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 import { Router } from '@angular/router';
@@ -43,8 +44,13 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.resend = true;
         this.CustomerGuid = response.CustomerGuid;
       });
+
   }
 
+  rejister (myForm: NgForm) {
+    console.log('Successful registration');
+    console.log(myForm);
+  }
   checkCode() {
     this.loginservice
       .Verify({

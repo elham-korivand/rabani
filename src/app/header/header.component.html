@@ -5,7 +5,7 @@
     </a>
 
     <div class="search-box">
-      <form action="">
+      <form >
         <input
           type="text"
           class="search-box"
@@ -15,7 +15,7 @@
       </form>
     </div>
 
-    <div class="btn btn-login">
+    <div class="btn btn-login" >
       <button type="button" class="btn btn-login">
         <img src="../../assets/images/person-fill.svg" style="width: 1.3rem" />
         <a routerLink="/login" *ngIf="!isAuthenticated">ورود</a>
@@ -26,7 +26,7 @@
         <img src="../../assets/images/cart2.svg" style="width: 1.3rem" />
         سبد خرید
       </button>
-      <p  style="background-color:blue;border-radius:50%;width: 1.2rem;height: 1.2rem;color: white;position: relative;left: -10rem;top: -2.9rem;font-size: 0.8rem;" *ngIf="shopping">{{shopping.Items.length}}</p>
+      <p  style="background-color:blue;border-radius:50%;width: 1.2rem;height: 1.2rem;color: white;position: relative;left: -10rem;top: -2rem;font-size: 0.8rem;" *ngIf="shopping">{{shopping.Items.length}}</p>
     </div>
   </div>
   <div class="navbar">
@@ -97,13 +97,13 @@
     <div class="menuitem">
       <li style="margin-right: 1rem; margin-top: 0.5rem" class="item">
 
-        <a
-          routerLink="#"
+        <button
+         (click)="logOutUser()"
           style="font-size: 0.9rem; font-weight: bold; margin-right: 0.5rem"
           > <img
           src="../../assets/images/box-arrow-in-right.svg"
           style="width: 1.3rem"
-        /> خروج</a
+        /> خروج</button
         >
       </li>
     </div>

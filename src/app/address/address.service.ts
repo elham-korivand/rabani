@@ -1,4 +1,4 @@
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormControlName, FormGroupName } from '@angular/forms';
@@ -7,7 +7,7 @@ import { FormControlName, FormGroupName } from '@angular/forms';
   providedIn: 'root',
 })
 export class AddressService {
-  addressSubject$ = new Subject();
+  addressSubject$ = new BehaviorSubject({});
 
   constructor(private http: HttpClient) {}
 

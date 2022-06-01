@@ -1,5 +1,5 @@
-<form ></form>
-<div
+<form #myform="ngForm" (ngSubmit)="rejister(myform)">
+  <div
   style="
     display: flex;
     flex-direction: column;
@@ -34,9 +34,9 @@ name="username"
   <p *ngIf="username">شماره موبایل خود را وارد کنید</p>
   <button
     id="button"
-    (click)="login()"
+
     class="button btn"
-    type="button"
+    type="submit"
     style="margin-top: 2rem; background-color: #ffcb53"
   >
     تایید شماره همراه
@@ -100,3 +100,5 @@ name="username"
     ارسال مجدد کد
   </button>
 </div>
+</form>
+

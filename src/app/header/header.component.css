@@ -1,5 +1,6 @@
 .containerr {
   box-shadow: 4px 4px 10px rgb(214, 214, 214);
+
 }
 
 .header {
@@ -7,6 +8,7 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  /* margin-right: 4rem; */
 }
 
 .logo {
@@ -29,6 +31,9 @@
   border-radius: 0.2rem;
   background-color: #f5f4f4;
   font-family: IRANSans;
+  margin-bottom:-1rem;
+
+
 }
 
 .navbar {
@@ -63,7 +68,7 @@ a {
 }
 .fa-search {
   position: absolute;
-  top: 2.5rem;
+  top: 2rem;
   color: #e3e3e4;
   width: 1.2rem;
   margin-right: 0.5rem;

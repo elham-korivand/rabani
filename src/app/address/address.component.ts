@@ -28,6 +28,7 @@ export class AddressComponent implements OnInit {
   orderTotal: number = 0;
   addresses: UserAddress[] = [];
   shopping: any;
+  addressUser:any;
   address: AddAddressModel = {
     firstName: '',
     lastName: '',
@@ -79,7 +80,9 @@ export class AddressComponent implements OnInit {
         addressId: address?.Id,
         addressDetail: `${address?.StateProvinceName} - ${address?.City} - ${address?.Address1}`
       });
+
     }
+
   }
 
   onConfirmAddress() {

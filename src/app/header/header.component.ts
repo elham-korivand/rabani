@@ -1,6 +1,8 @@
+import { Router } from '@angular/router';
 import { LoginService } from './../login/login.service';
 import { Component, OnInit } from '@angular/core';
 import{CartService} from "../cart/cart.service";
+import { HttpBackend, HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -14,7 +16,7 @@ export class HeaderComponent implements OnInit {
   Login:boolean=false;
   isAuthenticated: boolean = false;
   shopping:any;
-  constructor(private loginService: LoginService,private cart:CartService) {}
+  constructor(private loginService: LoginService,private cart:CartService,private logout:LoginService,private router:Router) {}
 
   ngOnInit(): void {
     this.isAuthenticated = this.loginService.checkLogin();
@@ -28,5 +30,9 @@ export class HeaderComponent implements OnInit {
   }
   opensubmenue(){
 this.submenue=!this.submenue
+  }
+  logOutUser(){
+this.logout.logout()
+
   }
 }

@@ -23,22 +23,21 @@
     </p>
   </div>
 
-  <div class="address" style="padding: 0.5rem">
+  <div class="address" style="padding: 0.5rem" *ngFor="let item of shipping">
     <label class="container">
       <input type="checkbox" />
       <span class="checkmark"></span>
     </label>
     <div class="address-recive">
       <p>
-        <strong>{{ shipping.ShippingMethods.Name }} </strong>
+        <strong>{{item.Name}}</strong>
       </p>
       <p style="font-size: 0.8rem">
-        سفارشات در روز کاری بعد ارسال و بین 48 تا 72 ساعت توسط پست، درب منزل
-        تحویل می گردد
+       {{item.Description}}
       </p>
-      <p style="font-size: 0.8rem">ارسال رایگان</p>
+      <p style="font-size: 0.8rem"> </p>
     </div>
   </div>
-  <button type="button" class="Continu" type="button" (click)="selectedPost()" routerLink="/payment">
+  <button type="button" class="Continu" type="button"  >
    تایید و انتخاب نحوه پرداخت
   </button>
