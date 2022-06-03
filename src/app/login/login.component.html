@@ -1,5 +1,4 @@
-
-  <div
+<div
   style="
     display: flex;
     flex-direction: column;
@@ -10,38 +9,51 @@
   "
   *ngIf="step === 1"
 >
-  <img
-    src="https://www.rabani.com/static/img/logo-square.svg"
-    style="width: 8rem"
-  />
-  <h4 style="font-size: 1.5rem; margin-top: 2rem">ورود</h4>
-  <p>برای ورود ابتدا شماره همراه خود را وارد نمایید</p>
-  <input
-    type="text"
+  <form
+    #myForm="ngForm"
+    (ngSubmit)="rejister(myForm)"
+    *ngIf="step === 1"
     style="
-      width: 23rem;
-      height: 3rem;
-      color: rgb(194, 194, 194);
-      text-align: center;
-      border: 1px solid rgb(194, 194, 194);
-      border-radius: 0.3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 60vh;
     "
-    [(ngModel)]="username"
-name="username"
-
-
-  />
-  <p *ngIf="username">شماره موبایل خود را وارد کنید</p>
-  <button
-    id="button"
-
-    class="button btn"
-    type="submit"
-    style="margin-top: 2rem; background-color: #ffcb53"
-    (click)="login()"
   >
-    تایید شماره همراه
-  </button>
+    <img
+      src="https://www.rabani.com/static/img/logo-square.svg"
+      style="width: 8rem"
+    />
+    <h4 style="font-size: 1.5rem; margin-top: 2rem">ورود</h4>
+    <p>برای ورود ابتدا شماره همراه خود را وارد نمایید</p>
+    <input
+      type="tel"
+      style="
+        width: 23rem;
+        height: 3rem;
+        color: rgb(194, 194, 194);
+        text-align: center;
+        border: 1px solid rgb(194, 194, 194);
+        border-radius: 0.3rem;
+      "
+      [(ngModel)]="username"
+      name="username"
+      pattern="[0-9]{11}"
+      min="11"
+      required
+    />
+    <p style="color: red" *ngIf="textError">شماره موبایل خود را وارد کنید</p>
+    <button
+      id="submit"
+      class="button btn"
+      type="submit"
+      style="margin-top: 2rem; background-color: #ffcb53"
+    >
+      تایید شماره همراه
+    </button>
+  </form>
 </div>
 <div
   *ngIf="step === 2"
@@ -72,7 +84,6 @@ name="username"
       border-radius: 0.3rem;
     "
     [(ngModel)]="inputcode"
-
   />
   <p style="font-size: 0.8rem; margin-top: 1rem" *ngIf="resend">
     اگر کد را دریافت نکرده اید {{ timeLeft }}ثانیه دیگر دوباره امتحان کنید
@@ -95,11 +106,8 @@ name="username"
     id="button"
     class="button btn"
     style="margin-top: 2rem; background-color: blue; color: white"
-    (click)="login()"
     type="button"
   >
     ارسال مجدد کد
   </button>
 </div>
-
-

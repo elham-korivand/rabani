@@ -12,8 +12,7 @@ import { Token } from '@angular/compiler';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit, OnDestroy {
-
-  username: any
+  username: any;
   islogin: boolean = true;
   timeLeft: number = 20;
   interval: any;
@@ -21,6 +20,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   inputcode: any;
   CustomerGuid: any;
   step: number = 1;
+  textError: boolean = false;
   constructor(private loginservice: LoginService, private router: Router) {}
 
   ngOnInit(): void {
@@ -43,11 +43,23 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.timeLeft = 20;
         this.resend = true;
         this.CustomerGuid = response.CustomerGuid;
+        this.islogin = true;
       });
-
   }
 
-  rejister (myForm: NgForm) {
+  rejister(myForm: NgForm) {
+    if (myForm.valid) {
+      this.login();
+      this.checkCode();
+      // if (this.islogin) {
+      //   this.checkCode();
+      // }
+      // } else if (myForm.value.username == 1) {
+      //   this.textError = true;
+    } else {
+      this.textError = true;
+    }
+
     console.log('Successful registration');
     console.log(myForm);
   }
