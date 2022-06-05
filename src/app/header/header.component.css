@@ -1,6 +1,5 @@
 .containerr {
   box-shadow: 4px 4px 10px rgb(214, 214, 214);
-
 }
 
 .header {
@@ -31,9 +30,7 @@
   border-radius: 0.2rem;
   background-color: #f5f4f4;
   font-family: IRANSans;
-  margin-bottom:-1rem;
-
-
+  margin-bottom: -1rem;
 }
 
 .navbar {
@@ -92,18 +89,14 @@ input::placeholder {
   position: absolute;
   right: 17.3rem;
   z-index: 20;
-
-
-
 }
- div.menuitem:hover{
-   background-color: #f0f0f0;
-   width: 100%;
-
- }
- .menuitem li a:hover{
-  color:#ffcb53;
- }
-.menuitem{
+div.menuitem:hover {
+  background-color: #f0f0f0;
+  width: 100%;
+}
+.menuitem li button:hover {
+  color: #ffcb53;
+}
+.menuitem {
   width: 20rem;
 }

@@ -1,6 +1,5 @@
 <div
   class="details-textile"
-
   style="width: 100rem; position: relative; left: 25rem"
 >
   <div class="details" *ngIf="details">
@@ -44,6 +43,7 @@
           <span class="item-text">گلدار</span>
         </div>
       </div>
+
       <div class="button-buy">
         <button
           class="button"
@@ -51,6 +51,7 @@
           data-toggle="modal"
           data-target="#exampleModal"
           data-dismiss="modal"
+          [disabled]="!details.IsAvailable"
         >
           خرید این کالا
         </button>
@@ -79,18 +80,29 @@
               </button>
             </div>
             <p class="modal-sub">مقدار مورد نظر جهت سفارش را تعیین نمایید:</p>
-            <div class="modal-body-input"  >
-              <select style="width: 14rem; height: 2.5rem"  name="meter" (change)="onMeterSelected($event)">
+            <div class="modal-body-input">
+              <select
+                style="width: 14rem; height: 2.5rem"
+                name="meter"
+                (change)="onMeterSelected($event)"
+              >
                 <option *ngFor="let meter of meterArray">
-                  {{meter}} متر
+                  {{ meter }} متر
                 </option>
               </select>
 
-              <select style="width: 14rem; height: 2.5rem" name="centimeterv" (change)="onCentemeterSelected($event)">
-                <option ngvalue="centimeter" *ngFor="let centimeter of centemeterArray"  >{{centimeter}} سانتی متر</option>
+              <select
+                style="width: 14rem; height: 2.5rem"
+                name="centimeterv"
+                (change)="onCentemeterSelected($event)"
+              >
+                <option
+                  ngvalue="centimeter"
+                  *ngFor="let centimeter of centemeterArray"
+                >
+                  {{ centimeter }} سانتی متر
+                </option>
               </select>
-
-
             </div>
 
             <div class="modal-footer">
@@ -99,7 +111,7 @@
                 class="button-add"
                 aria-label="Close"
                 data-dismiss="modal"
-                (click)="openModal(template,productId)"
+                (click)="openModal(template, productId)"
               >
                 <img src="../../assets//images/cart2.svg" />
                 افزودن به سبد خرید
@@ -113,36 +125,55 @@
 </div>
 <ng-template #template>
   <div class="modal-header">
-     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-        <span aria-hidden="true">×</span>
-     </button>
+    <button
+      type="button"
+      class="close pull-right"
+      aria-label="Close"
+      (click)="modalRef.hide()"
+    >
+      <span aria-hidden="true">×</span>
+    </button>
   </div>
 
-    <div class="modal-body">
-      <div class="modal-title">
-        <img src="../../assets/images/cart4.svg" class="image-card"  />
-        <p class="modal-title pull-left" style="color: green;">کالا به سبد خرید اضافه شد</p>
-
-      </div>
-
-      <h4>برای ادامه و...</h4>
-      <ul><li>برای خرید پارچه های دیگر به<a routerLink="/order/card" >"صفحه اصلی"</a>بروید</li>
-        <li>جهت اتمام خرید و سفارش به<a routerLink="/CartComponent">"سبد خرید"</a>بروید</li>
-      </ul>
-
-
+  <div class="modal-body">
+    <div class="modal-title">
+      <img src="../../assets/images/cart4.svg" class="image-card" />
+      <p class="modal-title pull-left" style="color: green">
+        کالا به سبد خرید اضافه شد
+      </p>
     </div>
 
-  <div class="modal-footer">
-     <a type="button"  routerLink="order/card" (click)="modalRef.hide()" style="background-color: #ffcb53;border-radius: 0.5rem;padding: 0.5rem 1rem;color: black;" >
- برو به سبد خرید
-     </a>
-     <button type="button" style="border: 1px solid blue;border-radius: 0.5rem;" >
-      <a  class="btn btn-default" (click)="modalRef.hide()"  routerLink="/" >
-
-        برو به صفحه اصلی
-      </a>
-     </button>
+    <h4>برای ادامه و...</h4>
+    <ul>
+      <li>
+        برای خرید پارچه های دیگر به<a routerLink="/order/card">"صفحه اصلی"</a
+        >بروید
+      </li>
+      <li>
+        جهت اتمام خرید و سفارش به<a routerLink="/CartComponent">"سبد خرید"</a
+        >بروید
+      </li>
+    </ul>
   </div>
 
+  <div class="modal-footer">
+    <a
+      type="button"
+      routerLink="order/card"
+      (click)="modalRef.hide()"
+      style="
+        background-color: #ffcb53;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        color: black;
+      "
+    >
+      برو به سبد خرید
+    </a>
+    <button type="button" style="border: 1px solid blue; border-radius: 0.5rem">
+      <a class="btn btn-default" (click)="modalRef.hide()" routerLink="/">
+        برو به صفحه اصلی
+      </a>
+    </button>
+  </div>
 </ng-template>

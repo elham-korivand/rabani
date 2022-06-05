@@ -13,8 +13,8 @@ import { LoginComponent } from './login/login.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 import { AddressComponent } from './address/address.component';
-import{ShippingComponent} from "./shipping/shipping.component";
-import{PaymentComponent} from "./payment/payment.component"
+import { ShippingComponent } from './shipping/shipping.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,7 +28,13 @@ const routes: Routes = [
   { path: 'order/card', component: <any>CartComponent },
   { path: 'category/انواع پارچه', component: <any>VarietyOfFabricComponent },
   { path: 'login', component: <any>LoginComponent },
-  { path: 'account/profile', component: <any>ProfileEditComponent },
+  {
+    path: 'account/profile',
+    loadChildren: () =>
+      import('./profile-edit/profile-mudule.module').then(
+        (x) => x.ProfileMuduleModule
+      ),
+  },
   { path: 'address', component: <any>AddressComponent },
   { path: 'shipping', component: <any>ShippingComponent },
   { path: 'payment', component: <any>PaymentComponent },

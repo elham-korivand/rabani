@@ -21,6 +21,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   CustomerGuid: any;
   step: number = 1;
   textError: boolean = false;
+  codeErrorText: string = '';
+  codeError: boolean = false;
   constructor(private loginservice: LoginService, private router: Router) {}
 
   ngOnInit(): void {
@@ -74,6 +76,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         debugger;
         if (data.ErrorList?.length) {
           console.error(data.ErrorList);
+
           return;
         }
 
