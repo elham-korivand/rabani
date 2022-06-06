@@ -2,7 +2,7 @@ import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 import { Router } from '@angular/router';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
 import { Token } from '@angular/compiler';
 
@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         Username: this.username,
       })
       .subscribe((response) => {
+
         this.step = 2;
         this.startTimer();
         this.timeLeft = 20;
