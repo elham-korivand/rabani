@@ -5,34 +5,68 @@
     </a>
 
     <div class="search-box">
-      <form >
+      <form>
         <input
           type="text"
           class="search-box"
           placeholder="محصول مورد نظر خود را جست و جو کنید  "
+          [(ngModel)]="searchItem"
+          name="search"
         />
-        <img src="../../assets/images/search.svg" alt="" class="fa fa-search" />
+        <button (click)="SearchProduct()">
+          <img
+            src="../../assets/images/search.svg"
+            alt=""
+            class="fa fa-search"
+          />
+        </button>
       </form>
     </div>
 
-    <div class="btn btn-login" >
+    <div class="btn btn-login">
       <button type="button" class="btn btn-login">
         <img src="../../assets/images/person-fill.svg" style="width: 1.3rem" />
         <a routerLink="/login" *ngIf="!isAuthenticated">ورود</a>
-        <a *ngIf="isAuthenticated" style="font-size:0.9rem" (click)="openmodal()">حساب کاربری</a>
+        <a
+          *ngIf="isAuthenticated"
+          style="font-size: 0.9rem"
+          (click)="openmodal()"
+          >حساب کاربری</a
+        >
       </button>
 
       <button type="button" class="btn btn-login" routerLink="/order/card">
         <img src="../../assets/images/cart2.svg" style="width: 1.3rem" />
         سبد خرید
       </button>
-      <p  style="background-color:blue;border-radius:50%;width: 1.2rem;height: 1.2rem;color: white;position: relative;left: -10rem;top: -2rem;font-size: 0.8rem;" *ngIf="shopping">{{shopping.Items.length}}</p>
+      <p
+        style="
+          background-color: blue;
+          border-radius: 50%;
+          width: 1.2rem;
+          height: 1.2rem;
+          color: white;
+          position: relative;
+          left: -10rem;
+          top: -2rem;
+          font-size: 0.8rem;
+        "
+        *ngIf="shopping"
+      >
+        {{ shopping.Items.length }}
+      </p>
     </div>
   </div>
   <div class="navbar">
     <ul>
       <li class="list"><a routerLink="/">صفحه اصلی</a></li>
-      <li class="list"><a (click)="opensubmenue()" style="color: rgb(131, 130, 130);cursor: pointer;">فروشگاه ربانی</a></li>
+      <li class="list">
+        <a
+          (click)="opensubmenue()"
+          style="color: rgb(131, 130, 130); cursor: pointer"
+          >فروشگاه ربانی</a
+        >
+      </li>
       <li class="list"><a routerLink="/landing/franchise">اخذ نمایندگی</a></li>
       <li class="list"><a routerLink="/contact-us">تماس با ما</a></li>
       <li class="list"><a routerLink="/about-us"> درباره ما</a></li>
@@ -54,60 +88,110 @@
       z-index: 10;
     "
   >
-  <div class="menuitem" >
-    <li style="margin-right: 1rem; margin-top: 0.5rem ;width: 100%;" class="item">
-
-      <a
-        routerLink="account/profile"
-        style="font-size: 0.9rem; font-weight: bold; margin-right: 0.5rem"
-        > <img src="../../assets/images/incognito.svg" style="width: 1.3rem" />اطلاعات شخصی</a
-      >
-    </li>
-  </div>
-<div class="menuitem">
-  <li style="margin-right: 1rem; margin-top: 0.5rem" class="item">
-
-    <a
-      routerLink="#"
-      style="font-size: 0.9rem; font-weight: bold; margin-right: 0.5rem"
-      > <img src="../../assets/images/credit-card.svg" style="width: 1.3rem" /> سفارش های من
-    </a>
-  </li>
-</div>
-   <div class="menuitem">
-    <li style="margin-right: 1rem; margin-top: 0.5rem" class="item">
-
-      <a
-        routerLink="#"
-        style="font-size: 0.9rem; font-weight: bold; margin-right: 0.5rem"
-        > <img src="../../assets/images/geo-alt-fill.svg" style="width: 1.3rem" /> آدرس ها</a
-      >
-    </li>
-   </div>
-   <div class="menuitem">
-    <li style="margin-right: 1rem; margin-top: 0.5rem;;" class="item">
-
-      <a
-        routerLink="#"
-        style="font-size: 0.9rem; font-weight: bold; margin-right: 0.5rem;"
-        > <img src="../../assets/images/bookmark.svg" style="width: 1.3rem" /> نشان شده ها
-      </a>
-    </li>
-   </div>
     <div class="menuitem">
-      <li style="margin-right: 1rem; margin-top: 0.5rem" class="item">
-
+      <li
+        style="margin-right: 1rem; margin-top: 0.5rem; width: 100%"
+        class="item"
+      >
         <button
-         (click)="logOutUser()"
-          style="font-size: 0.9rem; font-weight: bold; margin-right: 0.5rem"
-          > <img
-          src="../../assets/images/box-arrow-in-right.svg"
-          style="width: 1.3rem"
-        /> خروج</button
+          routerLink="account/profile"
+          style="
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            background-color: transparent;
+            border: none;
+            outline: none;
+          "
         >
+          <img
+            src="../../assets/images/incognito.svg"
+            style="width: 1.3rem"
+          />اطلاعات شخصی
+        </button>
       </li>
     </div>
-
+    <div class="menuitem">
+      <li style="margin-right: 1rem; margin-top: 0.5rem" class="item">
+        <button
+          routerLink="#"
+          style="
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            background-color: transparent;
+            border: none;
+            outline: none;
+          "
+        >
+          <img
+            src="../../assets/images/credit-card.svg"
+            style="width: 1.3rem"
+          />
+          سفارش های من
+        </button>
+      </li>
+    </div>
+    <div class="menuitem">
+      <li style="margin-right: 1rem; margin-top: 0.5rem" class="item">
+        <button
+          routerLink="#"
+          style="
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            background-color: transparent;
+            border: none;
+            outline: none;
+          "
+        >
+          <img
+            src="../../assets/images/geo-alt-fill.svg"
+            style="width: 1.3rem"
+          />
+          آدرس ها
+        </button>
+      </li>
+    </div>
+    <div class="menuitem">
+      <li style="margin-right: 1rem; margin-top: 0.5rem" class="item">
+        <button
+          routerLink="#"
+          style="
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            background-color: transparent;
+            border: none;
+            outline: none;
+          "
+        >
+          <img src="../../assets/images/bookmark.svg" style="width: 1.3rem" />
+          نشان شده ها
+        </button>
+      </li>
+    </div>
+    <div class="menuitem">
+      <li style="margin-right: 1rem; margin-top: 0.5rem" class="item">
+        <button
+          (click)="logOutUser()"
+          style="
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            background-color: transparent;
+            border: none;
+            outline: none;
+          "
+        >
+          <img
+            src="../../assets/images/box-arrow-in-right.svg"
+            style="width: 1.3rem"
+          />
+          خروج
+        </button>
+      </li>
+    </div>
   </ul>
 </div>
 <div *ngIf="submenue" class="submenue">
@@ -139,9 +223,11 @@
       "
     >
       <li class="list"><a routerLink="/category/انواع پارچه">جنس پارچه</a></li>
-      <li class="list"><a routerLink="#">رنگ پارچه</a></li>
-      <li class="list"><a routerLink="#">طرح پارچه</a></li>
-      <li class="list"><a routerLink="#">کاربرد پارچه</a></li>
+      <li class="list"><a routerLink="/category/انواع پارچه">رنگ پارچه</a></li>
+      <li class="list"><a routerLink="/category/انواع پارچه">طرح پارچه</a></li>
+      <li class="list">
+        <a routerLink="/category/انواع پارچه">کاربرد پارچه</a>
+      </li>
     </ul>
     <ul
       style="
@@ -151,10 +237,10 @@
         margin-top: 0.5rem;
       "
     >
-      <li class="list"><a routerLink="#">مانتو</a></li>
-      <li class="list"><a routerLink="#">شومیز </a></li>
-      <li class="list"><a routerLink="#">پیراهن </a></li>
-      <li class="list"><a routerLink="#">شلوار </a></li>
+      <li class="list"><a routerLink="/category/انواع پارچه">مانتو</a></li>
+      <li class="list"><a routerLink="/category/انواع پارچه">شومیز </a></li>
+      <li class="list"><a routerLink="/category/انواع پارچه">پیراهن </a></li>
+      <li class="list"><a routerLink="/category/انواع پارچه">شلوار </a></li>
     </ul>
     <ul
       style="
@@ -164,8 +250,9 @@
         margin-top: 0.5rem;
       "
     >
-      <li class="list"><a routerLink="#">کالای خواب </a></li>
+      <li class="list">
+        <a routerLink="/category/انواع پارچه">کالای خواب </a>
+      </li>
     </ul>
   </div>
 </div>
-

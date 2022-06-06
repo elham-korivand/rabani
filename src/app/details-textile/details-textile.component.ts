@@ -22,7 +22,7 @@ export class DetailsTextileComponent implements OnInit {
   centimeter: number = 0;
   selectedMeter: number = 0;
   selectedCm: number = 0;
-  quantity:number=0;
+  quantity: number = 0;
   constructor(
     private DetailsTextileService: DetailsTextileService,
     private modalService: BsModalService,
@@ -45,12 +45,12 @@ export class DetailsTextileComponent implements OnInit {
     );
   }
   openModal(template: TemplateRef<any>, productId: number) {
-    this.quantity = (this.selectedMeter * 100) +  (this.selectedMeter);
-    console.log(this.selectedMeter)
+    this.quantity = this.selectedMeter * 100 + this.selectedMeter;
+    console.log(this.selectedMeter);
     this.CartService.addtocart(productId, [
       {
         key: `addtocart_${productId}.EnteredQuantity`,
-        value:1
+        value: 1,
       },
     ]).subscribe((response) => {
       if (response.Success) {
@@ -58,23 +58,18 @@ export class DetailsTextileComponent implements OnInit {
     });
 
     this.modalRef = this.modalService.show(template);
-
   }
   displayHeaders() {
     let header = new HttpHeaders();
     header.append('abc', '22');
-
-
   }
 
   onMeterSelected(event: any) {
-
     this.selectedMeter = event.target.value;
-    console.log(this.selectedMeter)
+    console.log(this.selectedMeter);
   }
   onCentemeterSelected(event: any) {
-
     this.selectedCm = event.target.value;
-    console.log(this.selectedCm)
+    console.log(this.selectedCm);
   }
 }

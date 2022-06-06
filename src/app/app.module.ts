@@ -28,17 +28,13 @@ import { CartComponent } from './cart/cart.component';
 
 import { VarietyOfFabricComponent } from './variety-of-fabric/variety-of-fabric.component';
 import { LoginComponent } from './login/login.component';
-import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+
 import { TokenInterceptor } from './login/interceptor.service';
 import { AddressComponent } from './address/address.component';
 import { CommonModule } from '@angular/common';
 import { ShippingComponent } from './shipping/shipping.component';
 import { PaymentComponent } from './payment/payment.component';
-import { SidebarAccountComponent } from './profile-edit/sidebar-account/sidebar-account.component';
-
-
-
-
+import { ProfileMuduleModule } from './profile-edit/profile-mudule.module';
 
 @NgModule({
   declarations: [
@@ -61,15 +57,10 @@ import { SidebarAccountComponent } from './profile-edit/sidebar-account/sidebar-
     CartComponent,
     VarietyOfFabricComponent,
     LoginComponent,
-    ProfileEditComponent,
+
     AddressComponent,
     ShippingComponent,
     PaymentComponent,
-    SidebarAccountComponent,
-
-
-
-
   ],
   imports: [
     CommonModule,
@@ -81,6 +72,7 @@ import { SidebarAccountComponent } from './profile-edit/sidebar-account/sidebar-
     ModalModule,
     FormsModule,
     ReactiveFormsModule,
+    ProfileMuduleModule,
   ],
   providers: [
     BsModalService,
