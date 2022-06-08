@@ -25,7 +25,7 @@
 
   <div class="address" style="padding: 0.5rem" *ngFor="let item of shipping">
     <label class="container">
-      <input type="checkbox" />
+      <input type="checkbox" (click)="checked($event)" />
       <span class="checkmark"></span>
     </label>
     <div class="address-recive">
@@ -38,6 +38,7 @@
       <p style="font-size: 0.8rem"> </p>
     </div>
   </div>
-  <button type="button" class="Continu" type="button"  >
+  <button type="button" class="Continu" type="button" (click)="goToPayment()" >
    تایید و انتخاب نحوه پرداخت
+
   </button>

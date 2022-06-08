@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       });
   }
 
-  rejister(myForm: NgForm) {
+  register(myForm: NgForm) {
     if (myForm.valid) {
       this.login();
       this.checkCode();
@@ -66,6 +66,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     console.log('Successful registration');
     console.log(myForm);
   }
+
   checkCode() {
     this.loginservice
       .Verify({
@@ -73,15 +74,13 @@ export class LoginComponent implements OnInit, OnDestroy {
         VerificationCode: this.inputcode,
       })
       .subscribe((data) => {
-        console.log(data);
-        debugger;
         if (data.ErrorList?.length) {
           console.error(data.ErrorList);
-
           return;
         }
 
         if (data.Token) {
+          this.loginservice.updateLoginStatus(true);
           localStorage.setItem('token', data.Token);
           this.router.navigate(['/']);
         }

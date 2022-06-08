@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ShippingService } from './shipping.service';
 import { AddressService } from '../address/address.service';
@@ -11,9 +12,11 @@ export class ShippingComponent implements OnInit {
   totalPrice: number = 0;
 
   shipping: any;
+  checkvalue:boolean=false;
   constructor(
     private shippingService: ShippingService,
-    private addressService: AddressService
+    private addressService: AddressService,
+    private router:Router
   ) {}
 
   address: string = '';
@@ -36,4 +39,16 @@ export class ShippingComponent implements OnInit {
       this.totalPrice = data.OrderTotalModel.OrderTotal;
     });
   }
+  checked(PointerEvent:any){
+   if(PointerEvent.target.checked){
+     this.checkvalue=!this.checkvalue;
+   }
+   }
+goToPayment(){
+  if(this.checkvalue){
+    this.router.navigate(['/payment'])
+  }else{alert('لطفا نحوه ارسال را انتخاب کنید')}
 }
+
+  }
+

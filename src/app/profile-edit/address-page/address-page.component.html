@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="button-items">
+    <p>آدرس ها</p>
+    <button
+      style="width: 15rem; height: 2.5rem; border-radius: 0.2rem; color: blue"
+    >
+      افزودن آدرس جدید
+    </button>
+  </div>
+  <div *ngFor="let item of addresess; let i = index" class="items-address">
+    <div>
+      <p>{{ item.FirstName }} {{ item.LastName }}</p>
+      <p>{{ item.City }} {{ item.Address1 }}</p>
+      <p>تلفن همراه:{{ item.PhoneNumber }}</p>
+    </div>
+    <div class="items-left">
+      <button (click)="removeAdress(item.id, i)">
+        <img src="../../../assets/images/trash.svg" />
+      </button>
+      <p>کد پستی: {{ item.ZipPostalCode }}</p>
+    </div>
+  </div>
+</div>
+
+<!--
+
+<div style="margin-top: 3rem;width: 60rem;">
+  <div style="display: flex;flex-direction:column;justify-content: center;align-items: center;">
+    <div style="display: flex;flex-direction:row;justify-content:space-between;align-items: center;position: relative;right:38rem;width: 70%;">
+      <h6>آدرس ها</h6>
+    <button style="width: 10rem;height:2.5rem;border:1px solid blue;background-color:transparent;color:blue;">افزودن آدرس جدید</button>
+    </div>
+
+    <div *ngFor="let item of addresess" class="adresess">
+      <div style="display: flex;flex-direction:column;align-items:center;margin-right:40rem;justify-content:space-around" >
+        <button style="width:3rem;border: 1px solid blue; background-color: transparent;padding:0.2rem;" >
+          <img src="../../../assets/images/trash.svg"/>
+        </button>
+        <p>کد پستی:{{item.ZipPostalCode}}</p>
+
+    </div>
+      <span>{{item.FirstName}}</span>
+      <span>{{item.City}}</span>
+      <span>تلفن همراه:{{item.PhoneNumber}}</span>
+
+
+  </div>
+
+
+</div>
+</div> -->

@@ -4,7 +4,7 @@ import { faFontAwesome } from '@fortawesome/free-brands-svg-icons';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import AppComponent from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SliderComponent } from './slider/slider.component';
@@ -36,6 +36,7 @@ import { ShippingComponent } from './shipping/shipping.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ProfileMuduleModule } from './profile-edit/profile-mudule.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +62,8 @@ import { ProfileMuduleModule } from './profile-edit/profile-mudule.module';
     AddressComponent,
     ShippingComponent,
     PaymentComponent,
+
+
   ],
   imports: [
     CommonModule,
@@ -73,6 +76,7 @@ import { ProfileMuduleModule } from './profile-edit/profile-mudule.module';
     FormsModule,
     ReactiveFormsModule,
     ProfileMuduleModule,
+
   ],
   providers: [
     BsModalService,

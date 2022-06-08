@@ -1,1 +1,27 @@
-<p>orders works!</p>
+<div >
+
+  <p style="color: gray;">سفارشات</p>
+  <table style="display: inline-block;">
+    <tr >
+
+      <th>شماره سفارش</th>
+      <th>تاریخ سفارش</th>
+      <th>مبلغ سفارش</th>
+      <th>وضعیت سفارش</th>
+      <th>زمان تحویل </th>
+      <th> عملیات</th>
+    </tr>
+    <tr *ngFor="let item of orders">
+
+      <td >{{item.Id}}</td>
+      <td>{{item.PersianDate}}</td>
+      <td>{{item.Amount}}</td>
+      <td style="color:  #ffcb53;">لغو شده</td>
+      <td >{{item.DeliveryDateText}}------</td>
+      <td ><button style="width:12rem ;border: none;border-radius: 0.5rem;height: 2rem;background-color: rgb(197, 197, 197);">نمایش</button></td>
+
+    </tr>
+
+
+  </table>
+</div>

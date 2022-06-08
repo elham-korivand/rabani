@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-profile-edit',
   templateUrl: './profile-edit.component.html',
   styleUrls: ['./profile-edit.component.css'],
+
 })
 export class ProfileEditComponent implements OnInit {
   formRegister=new FormGroup({

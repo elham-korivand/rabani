@@ -1,3 +1,4 @@
+import { UpdateCart } from './cart.model';
 import { Router } from '@angular/router';
 import { DetailsTextileService } from '../details-textile/details-textile.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -12,7 +13,6 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-
   cart: any;
   Items: any[] = [];
   details: any = null;
@@ -26,14 +26,18 @@ export class CartComponent implements OnInit {
   centimeter: number = 0;
   selectedMeter: number = 0;
   selectedCm: number = 0;
-  quantity:number=0;
-  copon:string="";
-
-  constructor(private cartService: CartService, private DetailsTextileService: DetailsTextileService,
+  quantity: number = 0;
+  copon: string = '';
+  count: number = 0;
+  constructor(
+    private cartService: CartService,
+    private DetailsTextileService: DetailsTextileService,
     private modalService: BsModalService,
-    private CartService: CartService) {}
+
+  ) {}
 
   ngOnInit(): void {
+    this.getCount();
     this.cartService.shoppingCart().subscribe((res) => {
       this.cart = res;
     });
@@ -67,36 +71,35 @@ export class CartComponent implements OnInit {
   //   this.modalRef = this.modalService.show(template);
 
   // }
+  // CartCounter(){
+  //   this.CartService.updateCartItem()
+  // }
   displayHeaders() {
     let header = new HttpHeaders();
     header.append('abc', '22');
-
-
   }
 
   onMeterSelected(event: any) {
-
     this.selectedMeter = event.target.value;
-    console.log(this.selectedMeter)
+    console.log(this.selectedMeter);
   }
   onCentemeterSelected(event: any) {
-
     this.selectedCm = event.target.value;
-    console.log(this.selectedCm)
+    console.log(this.selectedCm);
   }
   deleteItem(id: number) {
     this.cartService.removeCartItem(id).subscribe(() => {
       this.refreshCart();
+      this.cartService.updateCounter();
     });
   }
-   refreshCart() {
+  refreshCart() {
     this.cartService.shoppingCart().subscribe((res) => {
       this.cart = res;
     });
   }
 
-
-// addcopon(value:any){
-//   this.CartService.ApplyDiscountCoupon(value).subscribe(res=>console.log(res))
-// }
+  getCount() {
+    this.cartService.updateCounter();
+  }
 }

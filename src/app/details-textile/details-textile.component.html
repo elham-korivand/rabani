@@ -52,6 +52,7 @@
           data-target="#exampleModal"
           data-dismiss="modal"
           [disabled]="!details.IsAvailable"
+
         >
           خرید این کالا
         </button>
@@ -86,7 +87,7 @@
                 name="meter"
                 (change)="onMeterSelected($event)"
               >
-                <option *ngFor="let meter of meterArray">
+                <option *ngFor="let meter of meterArray" [value]="meter">
                   {{ meter }} متر
                 </option>
               </select>
@@ -99,6 +100,7 @@
                 <option
                   ngvalue="centimeter"
                   *ngFor="let centimeter of centemeterArray"
+                  [value]="centimeter"
                 >
                   {{ centimeter }} سانتی متر
                 </option>

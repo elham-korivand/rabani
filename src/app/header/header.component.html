@@ -13,13 +13,13 @@
           [(ngModel)]="searchItem"
           name="search"
         />
-        <button (click)="SearchProduct()">
+        <a (click)="SearchProduct()">
           <img
             src="../../assets/images/search.svg"
             alt=""
             class="fa fa-search"
           />
-        </button>
+        </a>
       </form>
     </div>
 
@@ -51,9 +51,8 @@
           top: -2rem;
           font-size: 0.8rem;
         "
-        *ngIf="shopping"
       >
-        {{ shopping.Items.length }}
+        {{ cartCount }}
       </p>
     </div>
   </div>
@@ -103,6 +102,7 @@
             border: none;
             outline: none;
           "
+          (click)="openmodal()"
         >
           <img
             src="../../assets/images/incognito.svg"
@@ -114,7 +114,7 @@
     <div class="menuitem">
       <li style="margin-right: 1rem; margin-top: 0.5rem" class="item">
         <button
-          routerLink="#"
+         routerLink="account/orders"
           style="
             font-size: 0.9rem;
             font-weight: bold;
@@ -123,6 +123,7 @@
             border: none;
             outline: none;
           "
+           (click)="openmodal()"
         >
           <img
             src="../../assets/images/credit-card.svg"
@@ -135,7 +136,7 @@
     <div class="menuitem">
       <li style="margin-right: 1rem; margin-top: 0.5rem" class="item">
         <button
-          routerLink="#"
+          routerLink='account/addresess'
           style="
             font-size: 0.9rem;
             font-weight: bold;
@@ -144,6 +145,7 @@
             border: none;
             outline: none;
           "
+           (click)="openmodal()"
         >
           <img
             src="../../assets/images/geo-alt-fill.svg"
@@ -165,6 +167,7 @@
             border: none;
             outline: none;
           "
+           (click)="openmodal()"
         >
           <img src="../../assets/images/bookmark.svg" style="width: 1.3rem" />
           نشان شده ها
@@ -183,6 +186,7 @@
             border: none;
             outline: none;
           "
+           (click)="openmodal()"
         >
           <img
             src="../../assets/images/box-arrow-in-right.svg"
@@ -222,11 +226,11 @@
         margin-top: 0.5rem;
       "
     >
-      <li class="list"><a routerLink="/category/انواع پارچه">جنس پارچه</a></li>
-      <li class="list"><a routerLink="/category/انواع پارچه">رنگ پارچه</a></li>
-      <li class="list"><a routerLink="/category/انواع پارچه">طرح پارچه</a></li>
+      <li class="list"><a routerLink="/category/انواع پارچه" (click)="opensubmenue()">جنس پارچه</a></li>
+      <li class="list"><a routerLink="/category/انواع پارچه" (click)="opensubmenue()">رنگ پارچه</a></li>
+      <li class="list"><a routerLink="/category/انواع پارچه" (click)="opensubmenue()">طرح پارچه</a></li>
       <li class="list">
-        <a routerLink="/category/انواع پارچه">کاربرد پارچه</a>
+        <a routerLink="/category/انواع پارچه" (click)="opensubmenue()">کاربرد پارچه</a>
       </li>
     </ul>
     <ul
@@ -237,10 +241,10 @@
         margin-top: 0.5rem;
       "
     >
-      <li class="list"><a routerLink="/category/انواع پارچه">مانتو</a></li>
-      <li class="list"><a routerLink="/category/انواع پارچه">شومیز </a></li>
-      <li class="list"><a routerLink="/category/انواع پارچه">پیراهن </a></li>
-      <li class="list"><a routerLink="/category/انواع پارچه">شلوار </a></li>
+      <li class="list"><a routerLink="/category/انواع پارچه" (click)="opensubmenue()">مانتو</a></li>
+      <li class="list"><a routerLink="/category/انواع پارچه" (click)="opensubmenue()">شومیز </a></li>
+      <li class="list"><a routerLink="/category/انواع پارچه" (click)="opensubmenue()">پیراهن </a></li>
+      <li class="list"><a routerLink="/category/انواع پارچه" (click)="opensubmenue()">شلوار </a></li>
     </ul>
     <ul
       style="
@@ -251,7 +255,7 @@
       "
     >
       <li class="list">
-        <a routerLink="/category/انواع پارچه">کالای خواب </a>
+        <a routerLink="/category/انواع پارچه" (click)="opensubmenue()">کالای خواب </a>
       </li>
     </ul>
   </div>

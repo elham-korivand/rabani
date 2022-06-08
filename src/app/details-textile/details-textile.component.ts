@@ -22,7 +22,9 @@ export class DetailsTextileComponent implements OnInit {
   centimeter: number = 0;
   selectedMeter: number = 0;
   selectedCm: number = 0;
-  quantity: number = 0;
+  quantity: any;
+  number: number = 0;
+  close: boolean = false;
   constructor(
     private DetailsTextileService: DetailsTextileService,
     private modalService: BsModalService,
@@ -33,9 +35,10 @@ export class DetailsTextileComponent implements OnInit {
     this.DetailsTextileService.getDetailsTextile(this.productId).subscribe(
       (data) => {
         this.details = data.Data;
+        console.log(this.details);
 
         const meter = Math.round(this.details.Quantity.StockQuantity);
-        for (var i = 1; i <= meter; i++) {
+        for (var i = 0; i <= meter; i++) {
           this.meterArray.push(i);
         }
         for (var j = 0; j <= 90; j += 5) {
@@ -45,17 +48,17 @@ export class DetailsTextileComponent implements OnInit {
     );
   }
   openModal(template: TemplateRef<any>, productId: number) {
-    this.quantity = this.selectedMeter * 100 + this.selectedMeter;
-    console.log(this.selectedMeter);
-    this.CartService.addtocart(productId, [
-      {
-        key: `addtocart_${productId}.EnteredQuantity`,
-        value: 1,
-      },
-    ]).subscribe((response) => {
-      if (response.Success) {
+    this.quantity = `${this.selectedMeter}.${this.selectedCm}`;
+
+    this.quantity = parseFloat(this.quantity);
+
+    this.CartService.addtocart(productId, this.quantity).subscribe(
+      (response) => {
+        if (response.Success) {
+          this.CartService.updateCounter();
+        }
       }
-    });
+    );
 
     this.modalRef = this.modalService.show(template);
   }

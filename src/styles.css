@@ -10,7 +10,9 @@
   font-family: "IRANSans";
 
 }
-
+html{
+  overflow-x: hidden;
+}
 @font-face {
   font-family: "IRANSans";
   src: url("D:\rabaniangular\rabani-angular\src\assets\fonts\iransans\woff\IRANSansWeb(FaNum).woff");
