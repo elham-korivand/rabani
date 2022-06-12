@@ -40,6 +40,7 @@ export class CartComponent implements OnInit {
     this.getCount();
     this.cartService.shoppingCart().subscribe((res) => {
       this.cart = res;
+      console.log(this.cart)
     });
     this.DetailsTextileService.getDetailsTextile(this.productId).subscribe(
       (data) => {

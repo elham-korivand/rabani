@@ -48,6 +48,7 @@ export class DetailsTextileComponent implements OnInit {
     );
   }
   openModal(template: TemplateRef<any>, productId: number) {
+    this.close=true;
     this.quantity = `${this.selectedMeter}.${this.selectedCm}`;
 
     this.quantity = parseFloat(this.quantity);

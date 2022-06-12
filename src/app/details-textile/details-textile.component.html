@@ -1,13 +1,14 @@
 <div
   class="details-textile"
   style="width: 100rem; position: relative; left: 25rem"
+  *ngIf="!close"
 >
   <div class="details" *ngIf="details">
     <img
       src="{{ details?.DefaultPictureModel?.ImageUrl }}"
       class="image-details"
     />
-    <div class="description">
+    <div class="description" >
       <h4 class="textile-main-title">{{ details?.Breadcrumb?.ProductName }}</h4>
       <p class="textile-sub-title">
         {{ details.ProductPrice.Price }}
